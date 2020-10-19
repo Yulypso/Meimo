@@ -1,18 +1,20 @@
 import React from 'react'
-import {StyleSheet, View, Text, Image} from 'react-native'
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
 
 const MeimoItem = (props) => {
 
     const meimo=props.meimo //création de ma propre propriété prop
     return (
         <View style={styles.content_container}>
-            <View style={styles.header_container}>
-                <Text style={styles.meimo_nameText}>{meimo.name}</Text>
-                <Text style={styles.meimo_dateText}>{meimo.date}</Text>
-            </View>
+            <TouchableOpacity>
+                <View style={styles.header_container}>
+                    <Text style={styles.meimo_nameText}>{meimo.name}</Text>
+                    <Text style={styles.meimo_dateText}>{meimo.date}</Text>
+                </View>
         
                 {meimo.overview.length === 0 && <Text style={styles.meimo_descriptionText} numberOfLines={1}>No additionnal text</Text>}
                 <Text style={styles.meimo_descriptionText} numberOfLines={1}>{meimo.overview}</Text>
+            </TouchableOpacity>
         </View>
     )
 }

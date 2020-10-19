@@ -3,15 +3,15 @@ import {StyleSheet, TextInput, Button, TouchableWithoutFeedback, KeyboardAvoidin
 
 import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
+import MeimoSearch from '../components/MeimoSearch'
 
 import data from '../data/meimo'
 
 const MainScreen = () => {
 
-  //retourne 1 tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos
   const [meimos, setMeimos] = useState(data);
 
-  const [searched_text, setSearched_text] = useState('');
+  //retourne 1 tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos
 
   date = new Date().getDate(); //Current Date
   month = new Date().getMonth() + 1; //Current Month
@@ -21,11 +21,11 @@ const MainScreen = () => {
   sec = new Date().getSeconds(); //Current Seconds
   //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}
 
-  const handleSearchMeimo = () => {
-    const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(searched_text.toLowerCase()));    
-    searched_text.length == 0 || updatedMeimos.length == 0 ? setMeimos(data) : setMeimos(updatedMeimos);
+  const handleLoadSearchMeimo = (a) => {
+    const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.toLowerCase())); 
+    (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
-  
+
   return(
     <View style={styles.main_container}>
       <StatusBar barStyle='light-content' StatusBar backgroundColor="#454752"/>
@@ -51,21 +51,8 @@ const MainScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-
-          <Text>{meimos.map(i => i.name).includes(searched_text)}</Text>
           
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={styles.textInput}>
-              <TextInput 
-                  ref={input => { this.textInput = input }}
-                  style={styles.insideText} 
-                  placeholder='Search a Meimo 🔍' 
-                  placeholderTextColor='#858A9E'
-                  onChangeText={(text) => setSearched_text(text)}
-                  onSubmitEditing={() => handleSearchMeimo()}
-              />
-            </View>
-          </TouchableWithoutFeedback>
+          <MeimoSearch onSearch={handleLoadSearchMeimo}/>
          
 
           <View style={styles.second_container}>
@@ -143,26 +130,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   }, 
 
-/* second_container*/
-textInput: {
-  flex: 0.07,
-  marginTop: "1%",
-  marginBottom: "5%"
-  //backgroundColor: 'yellow'
-},
-insideText: {
-  flex: 1,
-  marginLeft: "3%",
-  marginRight: "3%",
-  height: 50,
-  borderWidth: 0,
-  paddingLeft: 5,
-  borderRadius: 10,
-  color: 'white',
-  backgroundColor: '#454752',
-  fontFamily: 'PingFang HK',
-  fontSize: 14
-},
+
 /* third_container */
 
 
