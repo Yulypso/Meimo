@@ -1,9 +1,10 @@
 import React from 'react'
-import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 
 const MeimoItem = (props) => {
 
-    const meimo=props.meimo //création de ma propre propriété prop
+    const meimo=props.meimo 
+
     return (
         <View style={styles.content_container}>
             <TouchableOpacity>
@@ -18,9 +19,6 @@ const MeimoItem = (props) => {
         </View>
     )
 }
-
-
-//marginTop: Platform.OS === 'ios' ? "15%" : "3%"
 
 const styles = StyleSheet.create ({
     content_container: {
@@ -45,7 +43,7 @@ const styles = StyleSheet.create ({
         flex: 3,
         fontSize: 20,
         fontWeight: 'bold',
-        flexWrap: 'wrap', //permet d'afficher le texte a la ligne si trop long
+        flexWrap: 'wrap',
         marginLeft: "2%",
         color: 'white',
         fontFamily: 'PingFang HK',
@@ -68,7 +66,7 @@ const styles = StyleSheet.create ({
         fontFamily: 'PingFang HK',
         marginLeft: "2%",
         //backgroundColor: 'pink',
-    },
+    }
 })
 
 export default MeimoItem

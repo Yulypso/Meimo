@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-import MainScreen from './screens/MainScreen'
+import Navigation from './Navigator/Navigation'
 
 
-function App() {
+const App = () => {
   return(
-    <MainScreen/>
+    <Navigation/>
   )
 }
 

@@ -1,21 +1,19 @@
-import React, {useState} from 'react'
-import {StyleSheet, View, Text, Image, TouchableOpacity, TouchableWithoutFeedback, Keyboard, TextInput } from 'react-native'
+import React from 'react'
+import {StyleSheet, View, TouchableWithoutFeedback, Keyboard, TextInput } from 'react-native'
 
 const MeimoSearch = (props) => {
 
-    const [searched_text, setSearched_text] = useState('');
+    var searched_text='';
 
     const handleSearchMeimo = () => {
         const meimoName = searched_text;
         props.onSearch({meimoName});
     }
-
-    const handleTextInputChange = (text) => {
-        setSearched_text(text) 
-    }
-
-    const handleChange = () => {
-        searched_text.length === 0 ? handleSearchMeimo() : null;
+    
+    const handleTextInputChange = text => {
+        searched_text = text;
+        const meimoName = searched_text;
+        props.onSearch({meimoName});
     }
 
     return (
@@ -25,19 +23,19 @@ const MeimoSearch = (props) => {
                     style={styles.insideText} 
                     placeholder='Search a Meimo 🔍' 
                     placeholderTextColor='#858A9E'
-                    onChangeText={(text) => handleTextInputChange(text)}
-                    onSubmitEditing={handleSearchMeimo}
-                    onChange={() => handleChange}
+                    onChangeText={text => handleTextInputChange(text)}
+                    onSubmitEditing={() => handleSearchMeimo()}
                 />
             </View>
         </TouchableWithoutFeedback>
     )
 }
+
 const styles = StyleSheet.create({
     textInput: {
     flex: 0.07,
-    marginTop: "1%",
-    marginBottom: "5%"
+    marginTop: "3%",
+    marginBottom: "4%"
     //backgroundColor: 'yellow'
     },
     insideText: {

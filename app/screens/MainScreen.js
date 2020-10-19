@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, Button, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
 
 import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
@@ -10,19 +10,18 @@ import data from '../data/meimo'
 const MainScreen = () => {
 
   const [meimos, setMeimos] = useState(data);
-
-  //retourne 1 tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos
-
+  //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
+/*
   date = new Date().getDate(); //Current Date
   month = new Date().getMonth() + 1; //Current Month
   year = new Date().getFullYear(); //Current Year
   hours = new Date().getHours(); //Current Hours
   min = new Date().getMinutes(); //Current Minutes
   sec = new Date().getSeconds(); //Current Seconds
-  //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}
+  //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}*/
 
   const handleLoadSearchMeimo = (a) => {
-    const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.toLowerCase())); 
+    const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
     (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
 
@@ -37,9 +36,17 @@ const MainScreen = () => {
                 <Text style={styles.MeimoInner}>e</Text>
                 im
                 <Text style={styles.MeimoInner}>o </Text>
-                🐼
               </Text>
             </View>
+
+            <View style={styles.pandaContainer}>
+              <Image
+                source={require('../assets/Panda.png')}
+                style={styles.imagePanda}
+                /*onPress = {openSettings}*/
+              />
+            </View>
+            
 
             <View style={styles.button_settings}>
               <TouchableOpacity>
@@ -53,7 +60,6 @@ const MainScreen = () => {
           </View>
           
           <MeimoSearch onSearch={handleLoadSearchMeimo}/>
-         
 
           <View style={styles.second_container}>
             <FlatList
@@ -71,9 +77,25 @@ const MainScreen = () => {
           </View>
 
           <View style={styles.third_container}>
+           <View style={styles.content_thirdContainer}>
 
+              <View style={styles.numberOfMeimoContainer}>
+                {meimos.length > 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimos</Text>}
+                {meimos.length <= 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimo</Text>}
+              </View>
+
+              <View style={styles.button_newMeimoContainer}>
+                <TouchableOpacity>
+                  <Image
+                    source={require('../assets/Bamboo.png')}
+                    style={styles.buttonImageNewMeimo}
+                    /*onPress = {openSettings}*/
+                  />
+                </TouchableOpacity>
+              </View>
+              
+            </View>
           </View>
-  
     </View>
   )
 }
@@ -100,7 +122,7 @@ const styles = StyleSheet.create({
     marginEnd: "3%"
   },
   third_container: {
-    flex: 0.09
+    flex: 0.09,
   },
 
 /* first_container*/
@@ -110,7 +132,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'PingFang HK',
     color: 'white',
-    paddingLeft: "3%"
+    paddingLeft: "3%",
+    //backgroundColor: 'blue'
   },
   MeimoInner: {
     color:'black',
@@ -120,9 +143,19 @@ const styles = StyleSheet.create({
     textShadowOffset:{width: 2, height: 2},
     textShadowRadius:1,
   },
+  pandaContainer: {
+    flex: 1,
+    marginLeft: -10,
+  },
+  imagePanda: {
+    height: 70,
+    width: 70,
+    resizeMode: 'contain',
+  },
   button_settings: {
     flex: 0.2,
-    marginEnd: "3%"
+    marginEnd: "3%",
+    //backgroundColor: 'red'
   },
   buttonImageSettings: {
     height: 50,
@@ -131,9 +164,42 @@ const styles = StyleSheet.create({
   }, 
 
 
-/* third_container */
-
-
+  /* third_container */
+  content_thirdContainer: {
+    flex:1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    //backgroundColor: 'yellow',
+  },
+  button_newMeimoContainer: {
+    flex: 0.15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'flex-end',
+    marginEnd: '3%',
+    //backgroundColor:'red'
+  },
+  buttonImageNewMeimo: {
+    height: 45,
+    width: 45,
+    
+    resizeMode: 'contain',
+    //backgroundColor: 'blue'
+  }, 
+  numberOfMeimoContainer: {
+    flex: 0.85,
+    marginLeft: '15%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    //backgroundColor:'green'
+  },
+  numberOfMeimoText: {
+    flex: 1,
+    textAlign: 'center',
+    //backgroundColor:'green',
+    fontFamily: 'PingFang HK',
+    color: 'white'
+  }
 });
 
 
