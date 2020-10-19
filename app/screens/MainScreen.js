@@ -4,14 +4,14 @@ import {StyleSheet, TextInput, Button, TouchableWithoutFeedback, KeyboardAvoidin
 import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
 
+import data from '../data/meimo'
+
 const MainScreen = () => {
 
   //retourne 1 tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos
-  const [meimos, setMeimos] = useState([
-    {id: 1, name:"Meimo 1" },
-    {id: 2, name:"Meimo 2" },
-    {id: 3, name:"Meimo 3" }
-  ])
+  const [meimos, setMeimos] = useState(data);
+
+  const [searched_text, setSearched_text] = useState('');
 
   date = new Date().getDate(); //Current Date
   month = new Date().getMonth() + 1; //Current Month
@@ -21,9 +21,13 @@ const MainScreen = () => {
   sec = new Date().getSeconds(); //Current Seconds
   //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}
 
+  const handleSearchMeimo = () => {
+    const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(searched_text.toLowerCase()));    
+    searched_text.length == 0 || updatedMeimos.length == 0 ? setMeimos(data) : setMeimos(updatedMeimos);
+  }
+  
   return(
     <View style={styles.main_container}>
-
       <StatusBar barStyle='light-content' StatusBar backgroundColor="#454752"/>
 
           <View style={styles.first_container}>
@@ -48,15 +52,17 @@ const MainScreen = () => {
             </View>
           </View>
 
+          <Text>{meimos.map(i => i.name).includes(searched_text)}</Text>
           
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.textInput}>
               <TextInput 
+                  ref={input => { this.textInput = input }}
                   style={styles.insideText} 
                   placeholder='Search a Meimo 🔍' 
                   placeholderTextColor='#858A9E'
-                  /*onChangeText={(text) => textInputChanged(text)}
-                  onSubmitEditing={() => search_meimo()}*/
+                  onChangeText={(text) => setSearched_text(text)}
+                  onSubmitEditing={() => handleSearchMeimo()}
               />
             </View>
           </TouchableWithoutFeedback>
@@ -64,12 +70,7 @@ const MainScreen = () => {
 
           <View style={styles.second_container}>
             <FlatList
-              data={[
-                {id: 1, name:"Meimo 1", date: "20/04/1998 12:00:00", overview: "Salut les amis c'est mon meimo Salut les amis c'est mon meimo Salut les amis c'est mon meimo Salut les amis c'est mon meimo"},
-                {id: 2, name:"Meimo 2", date: "20/04/1998 12:00:00", overview: "Salut les amis c'est mon meimo Salut les amis c'est mon meimo Salut les amis c'est mon meimo Salut les amis c'est mon meimo"},
-                {id: 3, name:"Meimo 3", date: "20/04/1998 12:00:00", overview: "Salut les amis c'est mon meimo Salut les amis c'est mon meimo Salut les amis c'est mon meimo Salut les amis c'est mon meimo"},
-                {id: 4, name:"Meimo 4", date: "20/04/1998 12:00:00", overview: ""}
-              ]}
+              data={meimos}
               keyExtractor={(item) => item.id.toString()}
               renderItem={({item}) => <MeimoItem meimo={item}/>}
               ItemSeparatorComponent={MeimoSeparator}
