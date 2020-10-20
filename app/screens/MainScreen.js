@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Alert, StatusBar, FlatList,Image, TouchableOpacity, Button} from 'react-native';
 
 import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
 import MeimoSearch from '../components/MeimoSearch'
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import data from '../data/meimo'
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
 
   const [meimos, setMeimos] = useState(data);
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
@@ -85,12 +88,13 @@ const MainScreen = () => {
               </View>
 
               <View style={styles.button_newMeimoContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Home', {itemID: '1', itemName: "bamboo"})}
+                >
                   <Image
                     source={require('../assets/Bamboo.png')}
                     style={styles.buttonImageNewMeimo}
-                    /*onPress = {openSettings}*/
-                  />
+                    />
                 </TouchableOpacity>
               </View>
               
