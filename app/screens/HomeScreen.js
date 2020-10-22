@@ -9,8 +9,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import data from '../data/meimo'
+import Navigation from '../Navigator/Navigation';
 
-const MainScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
 
   const [meimos, setMeimos] = useState(data);
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
@@ -27,6 +28,10 @@ const MainScreen = ({ navigation }) => {
     const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
     (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
+
+  const fromHomeNavigate = (meimo) => {
+    navigation.navigate("Detail", {meimo: meimo})
+  } 
 
   return(
     <View style={styles.main_container}>
@@ -52,11 +57,12 @@ const MainScreen = ({ navigation }) => {
             
 
             <View style={styles.button_settings}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Setting', {itemID: '1', itemName: "bamboo"})}
+              >
                 <Image
                   source={require('../assets/settings.png')}
                   style={styles.buttonImageSettings}
-                  /*onPress = {openSettings}*/
                 />
               </TouchableOpacity>
             </View>
@@ -68,8 +74,8 @@ const MainScreen = ({ navigation }) => {
             <FlatList
               data={meimos}
               keyExtractor={(item) => item.id.toString()}
-              renderItem={({item}) => <MeimoItem meimo={item}/>}
-              ItemSeparatorComponent={MeimoSeparator}
+              renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigate={fromHomeNavigate}/>}
+              ItemSeparatorComponent={MeimoSeparator} 
               /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
               onEndReached={() => {
                   if(this.page < this.totalPages) {
@@ -89,8 +95,8 @@ const MainScreen = ({ navigation }) => {
 
               <View style={styles.button_newMeimoContainer}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Home', {itemID: '1', itemName: "bamboo"})}
-                >
+                  onPress={() => navigation.navigate('NewMeimo', {itemID: '1', itemName: "bamboo"})}
+                >   
                   <Image
                     source={require('../assets/Bamboo.png')}
                     style={styles.buttonImageNewMeimo}
@@ -207,4 +213,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default MainScreen;
+export default HomeScreen;

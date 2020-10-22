@@ -2,12 +2,17 @@ import React from 'react'
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 
 const MeimoItem = (props) => {
-
-    const meimo=props.meimo 
+    //il faudrait pouvoir faire (props, {route , navigation})
+   //// const meimo=props.meimo;
+   const {meimo, fromHomeNavigate} = props;
+    //const { navigate } = props.navigation;
+    console.log(fromHomeNavigate.toString() /* :'( */ ); 
 
     return (
         <View style={styles.content_container}>
-            <TouchableOpacity>
+            <TouchableOpacity 
+                onPress={() => fromHomeNavigate(meimo)}
+            >
                 <View style={styles.header_container}>
                     <Text style={styles.meimo_nameText}>{meimo.name}</Text>
                     <Text style={styles.meimo_dateText}>{meimo.date}</Text>

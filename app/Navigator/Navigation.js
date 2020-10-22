@@ -4,18 +4,73 @@ import {StyleSheet, View, Text, Button, StatusBar, FlatList,Image, TouchableOpac
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import MainScreen from '../screens/MainScreen'
+import HomeScreen from '../screens/HomeScreen'
 import NewMeimoScreen from '../screens/NewMeimoScreen'
+import DetailScreen from '../screens/DetailScreen'
+import SettingScreen from '../screens/SettingScreen'
 
 
 const Navigation = () => {
 
-  const Stack = createStackNavigator();
+  const RootStack = createStackNavigator();
+  const MainStack = createStackNavigator();
+
+  /* Routes 
+  *  RootStack->NewMeimoScreen
+  *  RootStack->MainStack->DetailScreen
+  *  RootStack->MainStack->MainScreen
+  */
+
+  const MainStackScreen = () => {
+    return(
+      <MainStack.Navigator
+        initialRouteName="Home"
+        mode="card"
+        screenOptions= {{
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerStyle: {
+            backgroundColor: '#2F3138',
+          },
+          headerShown: true,
+          title:'',
+          headerTransparent:true
+        }}
+        
+      >
+        <MainStack.Screen 
+              name="Home" 
+              component={HomeScreen} 
+              options={{ 
+                //title: 'Panda Village'
+              }}  
+        />
+        <MainStack.Screen 
+              name="Detail" 
+              component={DetailScreen} 
+              options={{ 
+                //title: 'Panda Village'
+              }}  
+        />
+
+        <MainStack.Screen 
+              name="Setting" 
+              component={SettingScreen} 
+              options={{ 
+                //title: 'Panda Village'
+              }}  
+        />
+    
+      </MainStack.Navigator>
+    );
+  }
 
   return(
     <NavigationContainer>
-      <Stack.Navigator 
-        initialRouteName="Village"
+      <RootStack.Navigator 
+        mode="modal"
+        initialRouteName="Main"
         screenOptions= {{
           headerTitleStyle: {
             fontWeight: 'bold'
@@ -29,21 +84,22 @@ const Navigation = () => {
         }}
       >
 
-        <Stack.Screen 
-          name="Home" 
+        <RootStack.Screen 
+          name="NewMeimo" 
           component={NewMeimoScreen} 
           options={{ 
             //title: 'Panda Home',
           }}
         />
-        <Stack.Screen 
-          name="Village" 
-          component={MainScreen} 
+        <RootStack.Screen 
+          name="Main" 
+          component={MainStackScreen} 
           options={{ 
             //title: 'Panda Village'
           }}  
         />
-      </Stack.Navigator>
+
+      </RootStack.Navigator>
     </NavigationContainer>
   )
 }
