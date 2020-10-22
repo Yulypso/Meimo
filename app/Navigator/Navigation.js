@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Keyboard, Button, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -83,12 +83,24 @@ const Navigation = () => {
           headerTransparent:true
         }}
       >
-
         <RootStack.Screen 
           name="NewMeimo" 
           component={NewMeimoScreen} 
           options={{ 
-            //title: 'Panda Home',
+            headerTitle:
+            <Image
+              source={require('../assets/Bamboo.png')}
+              style={styles.buttonImageNewMeimo}
+            />,
+            headerBackTitleStyle: {color:'white'},
+            headerTintColor: 'white',
+            headerRight: () => (
+              <Button
+                onPress={() => Keyboard.dismiss()}
+                title="Done"
+                color="#0583F2"
+              />
+            ),
           }}
         />
         <RootStack.Screen 
@@ -105,7 +117,12 @@ const Navigation = () => {
 }
 
 const styles = StyleSheet.create({
-
+  buttonImageNewMeimo: {
+    height: 45,
+    width: 45,
+    resizeMode: 'contain',
+    //backgroundColor: 'blue'
+  },
 });
 
 export default Navigation;

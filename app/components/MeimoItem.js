@@ -4,14 +4,14 @@ import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 const MeimoItem = (props) => {
     //il faudrait pouvoir faire (props, {route , navigation})
    //// const meimo=props.meimo;
-   const {meimo, fromHomeNavigate} = props;
+   const {meimo, fromHomeNavigateToDetail} = props;
     //const { navigate } = props.navigation;
-    console.log(fromHomeNavigate.toString() /* :'( */ ); 
+    //console.log(fromHomeNavigateToDetail.toString() /* :'( */ ); 
 
     return (
         <View style={styles.content_container}>
             <TouchableOpacity 
-                onPress={() => fromHomeNavigate(meimo)}
+                onPress={() => fromHomeNavigateToDetail(meimo)}
             >
                 <View style={styles.header_container}>
                     <Text style={styles.meimo_nameText}>{meimo.name}</Text>

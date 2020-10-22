@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import data from '../data/meimo'
-import Navigation from '../Navigator/Navigation';
+import Navigation from '../navigator/Navigation';
 
 const HomeScreen = ({ navigation }) => {
 
@@ -29,7 +29,7 @@ const HomeScreen = ({ navigation }) => {
     (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
 
-  const fromHomeNavigate = (meimo) => {
+  const fromHomeNavigateToDetail= (meimo) => {
     navigation.navigate("Detail", {meimo: meimo})
   } 
 
@@ -74,7 +74,7 @@ const HomeScreen = ({ navigation }) => {
             <FlatList
               data={meimos}
               keyExtractor={(item) => item.id.toString()}
-              renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigate={fromHomeNavigate}/>}
+              renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={fromHomeNavigateToDetail}/>}
               ItemSeparatorComponent={MeimoSeparator} 
               /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
               onEndReached={() => {
@@ -95,7 +95,7 @@ const HomeScreen = ({ navigation }) => {
 
               <View style={styles.button_newMeimoContainer}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('NewMeimo', {itemID: '1', itemName: "bamboo"})}
+                  onPress={() => navigation.navigate('NewMeimo', {meimos}) }
                 >   
                   <Image
                     source={require('../assets/Bamboo.png')}
