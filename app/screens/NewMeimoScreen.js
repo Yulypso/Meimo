@@ -3,9 +3,6 @@ import {StyleSheet, TextInput, SafeAreaView, Button, TouchableWithoutFeedback, K
 
 import PictureItem from '../components/PictureItem'
 
-import pic from '../data/pictures'
-
-
 const NewMeimoScreen = ({ route, navigation }) => {
 
   const { meimos } = route.params
