@@ -11,26 +11,24 @@ const NewMeimoScreen = ({ route, navigation }) => {
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
-  date = d.getDate(); //Current Date
+  day = d.getDate(); //Current Date
   month = d.getMonth() + 1; //Current Month
   year = d.getFullYear(); //Current Year
   hours = d.getHours(); //Current Hours
   min = d.getMinutes(); //Current Minutes
   sec = d.getSeconds(); //Current Seconds
   //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}*/
+  var fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString();
+  var name = '';
+  var overview = '';
 
-  const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback 
-    onPress={() => Keyboard.dismiss()}> {children}
-    </TouchableWithoutFeedback>
-  );
 
     return (
 
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.main_container}>
           <View style={styles.first_container}>
-            <Text>{this.date} {monthNames[d.getMonth()]} {d.getFullYear()} at {d.getHours()}:{d.getMinutes()}</Text>  
+            <Text>{(d.getDate() < 10 ? '0' : '') + d.getDate()} {monthNames[d.getMonth()]} {d.getFullYear()} at {(d.getHours() < 10 ? '0' : '') + d.getHours()}:{(d.getMinutes() < 10 ? '0' : '') + d.getMinutes()}</Text>
           </View>
 
           <View style={styles.second_container}>
