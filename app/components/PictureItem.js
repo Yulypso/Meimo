@@ -36,7 +36,7 @@ const styles = StyleSheet.create ({
     ImageSettings: {
         height: 182,
         width: 110,
-        borderWidth:2,
+        borderWidth:1,
         borderColor:'#d35647',
         resizeMode:'cover',
     }, 

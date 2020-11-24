@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Keyboard, Button, StatusBar, FlatList,Image, TouchableOpacity, Alert} from 'react-native';
+import {StyleSheet, View, Text, Keyboard, Button, StatusBar, FlatList, Image, TouchableOpacity, Alert} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -69,6 +69,7 @@ const Navigation = () => {
 
   return(
     <NavigationContainer>
+      
       <RootStack.Navigator 
         mode="modal"
         initialRouteName="Main"
@@ -93,16 +94,9 @@ const Navigation = () => {
               source={require('../assets/Bamboo.png')}
               style={styles.buttonImageNewMeimo}
             />,
-            headerBackTitleStyle: {color:'white'},
-            headerTintColor: 'white',
-            headerRight: () => (
-              <Button
-                //TODO : call function into function
-                onPress={() => {/*NewMeimoScreen(){this.onSaveData()}*/saveData()/*Keyboard.dismiss(); Alert.alert("Saved !","")*/}}
-                title="Save"
-                color="#0583F2"
-              />
-            ),
+            headerBackTitleStyle: {color:'#0583F2'},
+            headerTintColor: '#0583F2',
+            headerLeft: null
           }}
         />
         <RootStack.Screen 

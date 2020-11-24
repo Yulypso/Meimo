@@ -96,7 +96,7 @@ const HomeScreen = ({ navigation }) => {
 
                 <View style={styles.button_newMeimoContainer}>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate('NewMeimo', {meimos}) }
+                    onPress={() => navigation.navigate('NewMeimo') }
                   >   
                     <Image
                       source={require('../assets/Bamboo.png')}

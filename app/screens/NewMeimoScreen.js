@@ -1,22 +1,36 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, SafeAreaView, Button, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
 
 import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
 
-var d = new Date();
-var fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
-var name = '';
-var overview = '';
+//var d = new Date();
+var fulldate = null;
+var name = "";
+var overview = "";
+
+createdMeimo = [
+  {
+      id: 17,
+      name: "a",
+      date: "a",
+      overview: "a",
+      pictures: [
+          require('../assets/Bamboo.png'),
+          require('../assets/Panda.png'),
+          require('../assets/Bamboo.png'),
+          require('../assets/settings.png')
+      ]
+  }]
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  const { meimos } = route.params
+  //const { meimos } = route.params
   //TODO
-  //const [UpDate, setMeimos] = useState(d);
+  const [d, setupD] = useState(new Date());
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
+"July", "August", "September", "October", "November", "December"];
 
   const handleNameTextInputChange = text => {
     name = text;
@@ -28,17 +42,42 @@ const NewMeimoScreen = ({ route, navigation }) => {
     console.log(overview);
   }
 
-  //TODO
-  /*const onSaveData = () => {
-    console.log("ça marche")
-  }*/
+  const saveData = () => { 
+    setupD(new Date());
+    fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
+    Keyboard.dismiss(); 
+    Alert.alert("Saved !","");
+    console.log("saved [" + fulldate + "] : " + name + " : " + overview ); 
+  }
 
     return (
 
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.main_container}>
+          
+          <View style={styles.ButtonsContainer}>
+            <View style={styles.backButtonContainer}>
+              <Button
+                title="< Back"
+                color="#0583F2"
+                onPress= {() => navigation.goBack()}
+              ></Button>
+            </View>
+
+            <View style={styles.saveButtonContainer}>
+              <Button
+                title="Save"
+                color="#0583F2"
+                onPress={saveData}
+              ></Button>
+            </View>
+
+          </View>
+
+          <View style={styles.bodyContainer}>
+            
           <View style={styles.first_container}>
-            <Text>{(d.getDate() < 10 ? '0' : '') + d.getDate()} {monthNames[d.getMonth()]} {d.getFullYear()} at {(d.getHours() < 10 ? '0' : '') + d.getHours()}:{(d.getMinutes() < 10 ? '0' : '') + d.getMinutes()}:{(d.getSeconds() < 10 ? '0' : '') + d.getSeconds()}</Text>
+            <Text style={styles.dateText}>{(d.getDate() < 10 ? '0' : '') + d.getDate()} {monthNames[d.getMonth()]} {d.getFullYear()} at {(d.getHours() < 10 ? '0' : '') + d.getHours()}:{(d.getMinutes() < 10 ? '0' : '') + d.getMinutes()}:{(d.getSeconds() < 10 ? '0' : '') + d.getSeconds()}</Text>
           </View>
 
           <View style={styles.second_container}>
@@ -63,7 +102,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
-                data={meimos}
+                data={createdMeimo}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({item}) => <PictureItem meimo={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
                 //ItemSeparatorComponent={MeimoSeparator} 
@@ -81,6 +120,8 @@ const NewMeimoScreen = ({ route, navigation }) => {
           <View style={styles.third_container}> 
             
           </View>
+
+          </View>
         </View>
 
       </TouchableWithoutFeedback>
@@ -97,8 +138,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'yellow',
-    marginTop: Platform.OS === 'ios' ? "23%" : "3%"
+    //backgroundColor: 'yellow',
   },
   second_container: {
     flex:0.83,
@@ -110,7 +150,10 @@ const styles = StyleSheet.create({
   },
   third_container: {
     flex: 0.09,
-    backgroundColor: 'green'
+    //backgroundColor: 'green'
+  },
+  bodyContainer: {
+    flex: 0.95
   },
 
   insideTextTitle: {
@@ -123,7 +166,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     borderRadius: 10,
     color: 'white',
-    backgroundColor: 'red',
+    backgroundColor: '#464646',
     fontFamily: 'PingFang HK',
     fontWeight: 'bold',
     fontSize: 30
@@ -137,7 +180,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     borderRadius: 10,
     color: 'white',
-    backgroundColor: 'blue',
+    backgroundColor: '#464646',
     fontFamily: 'PingFang HK',
     fontSize: 14,
     textAlignVertical: 'top',
@@ -148,17 +191,38 @@ const styles = StyleSheet.create({
     marginLeft: "3%",
     marginRight: "3%",
     borderRadius: 10,
-    backgroundColor: 'yellow'
+    //backgroundColor: 'yellow'
   },
+  dateText : {
+    color: 'white',
+    fontWeight: 'bold'
+  },
+
+  ButtonsContainer: {
+    flex:0.05,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: '0%',
+    marginTop: Platform.OS === 'ios' ? "12%" : "3%",
+    //backgroundColor: 'red',
+  },
+  saveButtonContainer: {
+    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    //backgroundColor: 'yellow',
+    borderRadius: 999
+  },
+  backButtonContainer: {
+    flex:0.5,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    //backgroundColor: 'yellow',
+    borderRadius: 999
+  }
 })
-
-export const saveData = () => { 
-  d = new Date();
-  fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
-  console.log("saved " + fulldate); 
-  //TODO : update Date to display on the screen
-  //onSaveData;
-}
-
 
 export default NewMeimoScreen;
