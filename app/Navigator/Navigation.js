@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Keyboard, Button, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Keyboard, Button, StatusBar, FlatList,Image, TouchableOpacity, Alert} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,6 +9,7 @@ import NewMeimoScreen from '../screens/NewMeimoScreen'
 import DetailScreen from '../screens/DetailScreen'
 import SettingScreen from '../screens/SettingScreen'
 
+import { saveData } from '../screens/NewMeimoScreen'
 
 const Navigation = () => {
 
@@ -96,8 +97,9 @@ const Navigation = () => {
             headerTintColor: 'white',
             headerRight: () => (
               <Button
-                onPress={() => Keyboard.dismiss()}
-                title="Done"
+                //TODO : call function into function
+                onPress={() => {/*NewMeimoScreen(){this.onSaveData()}*/saveData()/*Keyboard.dismiss(); Alert.alert("Saved !","")*/}}
+                title="Save"
                 color="#0583F2"
               />
             ),
