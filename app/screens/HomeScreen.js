@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Alert, StatusBar, FlatList,Image, TouchableOpacity, Button} from 'react-native';
+import {StyleSheet, View, Text, Alert, StatusBar, FlatList,Image, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Button} from 'react-native';
 
 import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
@@ -8,7 +8,7 @@ import MeimoSearch from '../components/MeimoSearch'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import data from '../data/meimo'
+import data from '../data/data_meimo'
 import Navigation from '../navigator/Navigation';
 
 const HomeScreen = ({ navigation }) => {
@@ -34,79 +34,81 @@ const HomeScreen = ({ navigation }) => {
   } 
 
   return(
-    <View style={styles.main_container}>
-      <StatusBar barStyle='light-content' StatusBar backgroundColor="#454752"/>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.main_container}>
+        <StatusBar barStyle='light-content' StatusBar backgroundColor="#454752"/>
 
-          <View style={styles.first_container}>
-            <View>
-              <Text style={styles.Meimo}>
-                M
-                <Text style={styles.MeimoInner}>e</Text>
-                im
-                <Text style={styles.MeimoInner}>o </Text>
-              </Text>
-            </View>
-
-            <View style={styles.pandaContainer}>
-              <Image
-                source={require('../assets/Panda.png')}
-                style={styles.imagePanda}
-                /*onPress = {openSettings}*/
-              />
-            </View>
-            
-
-            <View style={styles.button_settings}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Setting', {itemID: '1', itemName: "bamboo"})}
-              >
-                <Image
-                  source={require('../assets/settings.png')}
-                  style={styles.buttonImageSettings}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
-          
-          <MeimoSearch onSearch={handleLoadSearchMeimo}/>
-
-          <View style={styles.second_container}>
-            <FlatList
-              data={meimos}
-              keyExtractor={(item) => item.id.toString()}
-              renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={fromHomeNavigateToDetail}/>}
-              ItemSeparatorComponent={MeimoSeparator} 
-              /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
-              onEndReached={() => {
-                  if(this.page < this.totalPages) {
-                      this._loadFilms()
-                  }
-              }}*/
-            />
-          </View>
-
-          <View style={styles.third_container}>
-           <View style={styles.content_thirdContainer}>
-
-              <View style={styles.numberOfMeimoContainer}>
-                {meimos.length > 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimos</Text>}
-                {meimos.length <= 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimo</Text>}
+            <View style={styles.first_container}>
+              <View>
+                <Text style={styles.Meimo}>
+                  M
+                  <Text style={styles.MeimoInner}>e</Text>
+                  im
+                  <Text style={styles.MeimoInner}>o </Text>
+                </Text>
               </View>
 
-              <View style={styles.button_newMeimoContainer}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('NewMeimo', {meimos}) }
-                >   
-                  <Image
-                    source={require('../assets/Bamboo.png')}
-                    style={styles.buttonImageNewMeimo}
-                    />
-                </TouchableOpacity>
+              <View style={styles.pandaContainer}>
+                <Image
+                  source={require('../assets/Panda.png')}
+                  style={styles.imagePanda}
+                  /*onPress = {openSettings}*/
+                />
               </View>
               
+
+              <View style={styles.button_settings}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Setting', {itemID: '1', itemName: "bamboo"})}
+                >
+                  <Image
+                    source={require('../assets/settings.png')}
+                    style={styles.buttonImageSettings}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-    </View>
+            
+            <MeimoSearch onSearch={handleLoadSearchMeimo}/>
+
+            <View style={styles.second_container}>
+              <FlatList
+                data={meimos}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={fromHomeNavigateToDetail}/>}
+                ItemSeparatorComponent={MeimoSeparator} 
+                /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
+                onEndReached={() => {
+                    if(this.page < this.totalPages) {
+                        this._loadFilms()
+                    }
+                }}*/
+              />
+            </View>
+
+            <View style={styles.third_container}>
+            <View style={styles.content_thirdContainer}>
+
+                <View style={styles.numberOfMeimoContainer}>
+                  {meimos.length > 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimos</Text>}
+                  {meimos.length <= 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimo</Text>}
+                </View>
+
+                <View style={styles.button_newMeimoContainer}>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('NewMeimo', {meimos}) }
+                  >   
+                    <Image
+                      source={require('../assets/Bamboo.png')}
+                      style={styles.buttonImageNewMeimo}
+                      />
+                  </TouchableOpacity>
+                </View>
+                
+              </View>
+            </View>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 

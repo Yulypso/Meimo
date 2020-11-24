@@ -19,51 +19,61 @@ const NewMeimoScreen = ({ route, navigation }) => {
   sec = d.getSeconds(); //Current Seconds
   //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}*/
 
+  const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback 
+    onPress={() => Keyboard.dismiss()}> {children}
+    </TouchableWithoutFeedback>
+  );
+
     return (
-      <View style={styles.main_container}>
-        <View style={styles.first_container}>
-          <Text>{this.date} {monthNames[d.getMonth()]} {d.getFullYear()} at {d.getHours()}:{d.getMinutes()}</Text>  
-        </View>
 
-        <View style={styles.second_container}>
-          <TextInput style={styles.insideTextTitle} 
-            placeholder='Title' 
-            placeholderTextColor='#858A9E'>
-                          
-          </TextInput>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.main_container}>
+          <View style={styles.first_container}>
+            <Text>{this.date} {monthNames[d.getMonth()]} {d.getFullYear()} at {d.getHours()}:{d.getMinutes()}</Text>  
+          </View>
 
-          <TextInput style={styles.insideText} 
-            placeholder='Write your Meimo'
-            multiline
-            placeholderTextColor='#858A9E'>
-          </TextInput>
+          <View style={styles.second_container}>
+            <TextInput style={styles.insideTextTitle} 
+              placeholder='Title' 
+              placeholderTextColor='#858A9E'>
+                            
+            </TextInput>
 
-          <SafeAreaView style={styles.pictureContainer}>
+            <TextInput style={styles.insideText} 
+              placeholder='Write your Meimo'
+              multiline
+              placeholderTextColor='#858A9E'>
+            </TextInput>
+
+            <SafeAreaView style={styles.pictureContainer}>
+              
+              <FlatList
+                horizontal={true}
+                pagingEnabled={true}
+                showsHorizontalScrollIndicator={false}
+                legacyImplementation={false}
+                data={meimos}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({item}) => <PictureItem meimo={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
+                //ItemSeparatorComponent={MeimoSeparator} 
+                /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
+                onEndReached={() => {
+                    if(this.page < this.totalPages) {
+                        this._loadFilms()
+                    }
+                }}*/
+              />
+            </SafeAreaView>
+
+          </View>
+
+          <View style={styles.third_container}> 
             
-            <FlatList
-              horizontal={true}
-              pagingEnabled={true}
-              showsHorizontalScrollIndicator={false}
-              legacyImplementation={false}
-              data={meimos}
-              keyExtractor={(item) => item.id.toString()}
-              renderItem={({item}) => <PictureItem meimo={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
-              //ItemSeparatorComponent={MeimoSeparator} 
-              /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
-              onEndReached={() => {
-                  if(this.page < this.totalPages) {
-                      this._loadFilms()
-                  }
-              }}*/
-            />
-          </SafeAreaView>
-
+          </View>
         </View>
 
-        <View style={styles.third_container}> 
-          
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
 }
 

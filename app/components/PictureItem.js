@@ -15,10 +15,10 @@ const PictureItem = (props) => {
             <TouchableOpacity 
                 //onPress={() => fromHomeNavigate(picture)}
             >
-                <Image
+                {<Image
                     source={meimo.pictures[1]} //TODO display list of Meimos pictures
                     style={styles.ImageSettings}
-                />
+                />}
             </TouchableOpacity>
         </SafeAreaView>
     )
