@@ -51,6 +51,7 @@ const Navigation = () => {
               name="Detail" 
               component={DetailScreen} 
               options={{ 
+                headerLeft: null
                 //title: 'Panda Village'
               }}  
         />
@@ -89,13 +90,6 @@ const Navigation = () => {
           name="NewMeimo" 
           component={NewMeimoScreen} 
           options={{ 
-            headerTitle:
-            <Image
-              source={require('../assets/Bamboo.png')}
-              style={styles.buttonImageNewMeimo}
-            />,
-            headerBackTitleStyle: {color:'#0583F2'},
-            headerTintColor: '#0583F2',
             headerLeft: null
           }}
         />

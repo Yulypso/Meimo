@@ -5,22 +5,23 @@ export default data = [
         date: "20/04/1998 12:00:00",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png')
-        ]
+            {
+              id: 1,
+              key: require('../assets/Bamboo.png')
+            }, 
+            {
+              id: 2,
+              key: require('../assets/Panda.png')
+            },
+            {
+              id: 3,
+              key : require('../assets/Bamboo.png')
+            },
+            {
+              id: 4,
+              key : require('../assets/settings.png')
+            }
+          ]
     },
     {
         id: 2,
@@ -28,22 +29,23 @@ export default data = [
         date: "20/04/1998 12:00:00",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png')
-        ]
+            {
+              id: 1,
+              key: require('../assets/Bamboo.png')
+            }, 
+            {
+              id: 2,
+              key: require('../assets/Panda.png')
+            },
+            {
+              id: 3,
+              key : require('../assets/Bamboo.png')
+            },
+            {
+              id: 4,
+              key : require('../assets/settings.png')
+            }
+          ]
     },
     {
         id: 3,
@@ -51,22 +53,23 @@ export default data = [
         date: "20/04/1998 12:00:00",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png')
-        ]
+            {
+              id: 1,
+              key: require('../assets/Bamboo.png')
+            }, 
+            {
+              id: 2,
+              key: require('../assets/Panda.png')
+            },
+            {
+              id: 3,
+              key : require('../assets/Bamboo.png')
+            },
+            {
+              id: 4,
+              key : require('../assets/settings.png')
+            }
+          ]
     },
     {
         id: 4,
@@ -74,22 +77,23 @@ export default data = [
         date: "20/04/1998 12:00:00",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png')
-        ]
+            {
+              id: 1,
+              key: require('../assets/Bamboo.png')
+            }, 
+            {
+              id: 2,
+              key: require('../assets/Panda.png')
+            },
+            {
+              id: 3,
+              key : require('../assets/Bamboo.png')
+            },
+            {
+              id: 4,
+              key : require('../assets/settings.png')
+            }
+          ]
     },
     {
         id: 5,
@@ -97,22 +101,23 @@ export default data = [
         date: "20/04/1998 12:00:00",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/Panda.png'),
-            require('../assets/Bamboo.png'),
-            require('../assets/settings.png'),
-            require('../assets/Bamboo.png')
-        ]
+            {
+              id: 1,
+              key: require('../assets/Bamboo.png')
+            }, 
+            {
+              id: 2,
+              key: require('../assets/Panda.png')
+            },
+            {
+              id: 3,
+              key : require('../assets/Bamboo.png')
+            },
+            {
+              id: 4,
+              key : require('../assets/settings.png')
+            }
+          ]
     },
  
 ] 

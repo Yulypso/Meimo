@@ -1,10 +1,13 @@
 import React from 'react'
 import {StyleSheet, View, SafeAreaView, Text, Image, TouchableOpacity} from 'react-native'
+import { TextInput } from 'react-native-gesture-handler';
+
+import data from '../data/data_meimo'
 
 const PictureItem = (props) => {
     //il faudrait pouvoir faire (props, {route , navigation})
    //// const meimo=props.meimo;
-   const {meimo/*, fromHomeNavigate*/} = props;
+   const {meimoPictures/*, fromHomeNavigate*/} = props;
     //const { navigate } = props.navigation;
     //console.log(fromHomeNavigate.toString() /* :'( */ ); 
    // console.log(meimo.name);
@@ -16,9 +19,12 @@ const PictureItem = (props) => {
                 //onPress={() => fromHomeNavigate(picture)}
             >
                 {<Image
-                    source={meimo.pictures[1]} //TODO display list of Meimos pictures
+                    source={meimoPictures.key} //TODO display list of Meimos pictures
                     style={styles.ImageSettings}
                 />}
+                <TextInput>
+                    {/*console.log(meimo)*/}
+                </TextInput>
             </TouchableOpacity>
         </SafeAreaView>
     )
@@ -36,9 +42,10 @@ const styles = StyleSheet.create ({
     ImageSettings: {
         height: 182,
         width: 110,
-        borderWidth:1,
-        borderColor:'#d35647',
+        borderWidth:2,
+        borderColor:'black',
         resizeMode:'cover',
+        borderRadius: 20
     }, 
 })
 

@@ -6,22 +6,33 @@ import data from '../data/data_meimo'
 
 //var d = new Date();
 var fulldate = null;
-var name = "";
-var overview = "";
 
 createdMeimo = [
   {
-      id: 17,
-      name: "a",
-      date: "a",
-      overview: "a",
-      pictures: [
-          require('../assets/Bamboo.png'),
-          require('../assets/Panda.png'),
-          require('../assets/Bamboo.png'),
-          require('../assets/settings.png')
-      ]
-  }]
+    id: 17,
+    name: "",
+    date: "",
+    overview: "",
+    pictures: [
+      {
+        id: 1,
+        key: require('../assets/Bamboo.png')
+      }, 
+      {
+        id: 2,
+        key: require('../assets/Panda.png')
+      },
+      {
+        id: 3,
+        key : require('../assets/Bamboo.png')
+      },
+      {
+        id: 4,
+        key : require('../assets/settings.png')
+      }
+    ]
+  }
+]
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
@@ -32,23 +43,42 @@ const NewMeimoScreen = ({ route, navigation }) => {
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
 
-  const handleNameTextInputChange = text => {
-    name = text;
-    console.log(name);
+  const handleNameTextInputChange = (array, text) => {
+    array.name = text;
+    console.log(array.name);
   }
 
-  const handleOverviewTextInputChange = text => {
-    overview = text;
-    console.log(overview);
+  const handleOverviewTextInputChange = (array, text) => {
+    array.overview = text;
+    console.log(array.overview);
+  }
+
+  /*const convertListToMap = (list) => {
+    var map = {}
+    list.forEach((item, index) => map[index] = item);
+
+    //listmap = []
+    //listmap.push(map)
+    return map;
+  }*/
+
+  const addPicture = (array, id, key) => {
+    //to use: 
+    //addPicture(createdMeimo[0], 50, require('../assets/Panda.png'))
+    array.pictures.push({id: id, key: key});
   }
 
   const saveData = () => { 
     setupD(new Date());
     fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
     Keyboard.dismiss(); 
+    createdMeimo[0].date = fulldate;
     Alert.alert("Saved !","");
-    console.log("saved [" + fulldate + "] : " + name + " : " + overview ); 
+    console.log("saved [" + createdMeimo[0].date + "] : " + createdMeimo[0].name + " : " + createdMeimo[0].overview ); 
   }
+
+  
+
 
     return (
 
@@ -64,6 +94,10 @@ const NewMeimoScreen = ({ route, navigation }) => {
               ></Button>
             </View>
 
+            <View style={styles.dateContainer}>
+              <Text style={styles.dateText}>{(d.getDate() < 10 ? '0' : '') + d.getDate()} {monthNames[d.getMonth()]} {d.getFullYear()} at {(d.getHours() < 10 ? '0' : '') + d.getHours()}:{(d.getMinutes() < 10 ? '0' : '') + d.getMinutes()}:{(d.getSeconds() < 10 ? '0' : '') + d.getSeconds()}</Text>
+            </View>
+                        
             <View style={styles.saveButtonContainer}>
               <Button
                 title="Save"
@@ -76,22 +110,19 @@ const NewMeimoScreen = ({ route, navigation }) => {
 
           <View style={styles.bodyContainer}>
             
-          <View style={styles.first_container}>
-            <Text style={styles.dateText}>{(d.getDate() < 10 ? '0' : '') + d.getDate()} {monthNames[d.getMonth()]} {d.getFullYear()} at {(d.getHours() < 10 ? '0' : '') + d.getHours()}:{(d.getMinutes() < 10 ? '0' : '') + d.getMinutes()}:{(d.getSeconds() < 10 ? '0' : '') + d.getSeconds()}</Text>
-          </View>
 
           <View style={styles.second_container}>
             <TextInput style={styles.insideTextTitle} 
               placeholder='Title' 
-              onChangeText={text => handleNameTextInputChange(text)}
+              onChangeText={text => handleNameTextInputChange(createdMeimo[0], text)}
               placeholderTextColor='#858A9E'>
-                            
             </TextInput>
+            
 
             <TextInput style={styles.insideText} 
               placeholder='Write your Meimo'
               multiline
-              onChangeText={text => handleOverviewTextInputChange(text)}
+              onChangeText={text => handleOverviewTextInputChange(createdMeimo[0], text)}
               placeholderTextColor='#858A9E'>
             </TextInput>
 
@@ -102,9 +133,9 @@ const NewMeimoScreen = ({ route, navigation }) => {
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
-                data={createdMeimo}
+                data={createdMeimo[0].pictures}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({item}) => <PictureItem meimo={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
+                renderItem={({item}) => <PictureItem meimoPictures={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
                 //ItemSeparatorComponent={MeimoSeparator} 
                 /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
                 onEndReached={() => {
@@ -133,15 +164,8 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: '#2F3138'
   },
-  first_container: {
-    flex:0.025,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    //backgroundColor: 'yellow',
-  },
   second_container: {
-    flex:0.83,
+    flex:0.855,
     flexDirection: 'column',
     backgroundColor: '#454752',
     borderRadius: 20,
@@ -207,22 +231,30 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === 'ios' ? "12%" : "3%",
     //backgroundColor: 'red',
   },
+  backButtonContainer: {
+    flex:0.3,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    //backgroundColor: 'yellow',
+    borderRadius: 999
+  },
+  dateContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //backgroundColor: 'green',
+    borderRadius: 999
+  },
   saveButtonContainer: {
-    flex: 0.5,
+    flex: 0.3,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
     //backgroundColor: 'yellow',
     borderRadius: 999
   },
-  backButtonContainer: {
-    flex:0.5,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    //backgroundColor: 'yellow',
-    borderRadius: 999
-  }
 })
 
 export default NewMeimoScreen;
