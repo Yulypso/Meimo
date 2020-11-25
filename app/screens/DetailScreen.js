@@ -34,10 +34,10 @@ createdMeimo = [
   }
 ]
 
-const NewMeimoScreen = ({ route, navigation }) => {
+const DetailScreen = ({ route, navigation }) => {
 
-  //const { meimos } = route.params
-  //TODO
+  const { meimo, /*meimos, fromHomeUpdateMeimos*/ } = route.params
+  
   const [d, setupD] = useState(new Date());
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -72,9 +72,9 @@ const NewMeimoScreen = ({ route, navigation }) => {
     setupD(new Date());
     fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
     Keyboard.dismiss(); 
-    createdMeimo[0].date = fulldate;
+    meimo.date = fulldate;
     Alert.alert("Saved !","");
-    console.log("saved [" + createdMeimo[0].date + "] : " + createdMeimo[0].name + " : " + createdMeimo[0].overview ); 
+    console.log("saved [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
   }
 
   
@@ -90,7 +90,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
               <Button
                 title="< Back"
                 color="#0583F2"
-                onPress= {() => navigation.goBack()}
+                onPress= {() => {/*fromHomeUpdateMeimos(meimos);*/ navigation.goBack();}}
               ></Button>
             </View>
 
@@ -114,16 +114,18 @@ const NewMeimoScreen = ({ route, navigation }) => {
           <View style={styles.second_container}>
             <TextInput style={styles.insideTextTitle} 
               placeholder='Title' 
-              onChangeText={text => handleNameTextInputChange(createdMeimo[0], text)}
+              onChangeText={text => handleNameTextInputChange(meimo, text)}
               placeholderTextColor='#858A9E'>
+              {meimo.name}
             </TextInput>
             
 
             <TextInput style={styles.insideText} 
               placeholder='Write your Meimo'
               multiline
-              onChangeText={text => handleOverviewTextInputChange(createdMeimo[0], text)}
+              onChangeText={text => handleOverviewTextInputChange(meimo, text)}
               placeholderTextColor='#858A9E'>
+              {meimo.overview}
             </TextInput>
 
             <SafeAreaView style={styles.pictureContainer}>
@@ -133,7 +135,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
-                data={createdMeimo[0].pictures}
+                data={meimo.pictures}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({item}) => <PictureItem meimoPictures={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
                 //ItemSeparatorComponent={MeimoSeparator} 
@@ -257,4 +259,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NewMeimoScreen;
+export default DetailScreen;

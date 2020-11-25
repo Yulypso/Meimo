@@ -60,6 +60,7 @@ const Navigation = () => {
               name="Setting" 
               component={SettingScreen} 
               options={{ 
+                headerLeft: null
                 //title: 'Panda Village'
               }}  
         />

@@ -29,8 +29,12 @@ const HomeScreen = ({ navigation }) => {
     (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
 
+  const fromHomeUpdateMeimos = (meimos) => {
+    setMeimos(meimos);
+  }
+
   const fromHomeNavigateToDetail= (meimo) => {
-    navigation.navigate("Detail", {meimo: meimo})
+    navigation.navigate("Detail", {meimo: meimos[meimo.id-1]/*, meimos: meimos,fromHomeUpdateMeimos: fromHomeUpdateMeimos*/})
   } 
 
   return(

@@ -1,9 +1,9 @@
 export default data = [
     {
         id: 1,
-        name: "Meimo 1",
-        date: "20/04/1998 12:00:00",
-        overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
+        name: "Equipment",
+        date: "22/11/2020 09:03:56",
+        overview: "Ne pas oublier de prendre son équipement de ski ce jeudi",
         pictures: [
             {
               id: 1,
@@ -25,9 +25,9 @@ export default data = [
     },
     {
         id: 2,
-        name: "Meimo 2",
-        date: "20/04/1998 12:00:00",
-        overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
+        name: "Liste de courses ",
+        date: "12/11/2020 17:12:03",
+        overview: "-Bamboo\n-Pavé de saumon\n-Courgette\n-Pommes\n-Petits biscuits",
         pictures: [
             {
               id: 1,
@@ -49,9 +49,9 @@ export default data = [
     },
     {
         id: 3,
-        name: "Meimo 3",
-        date: "20/04/1998 12:00:00",
-        overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
+        name: "Recette gateau",
+        date: "08/11/2020 14:42:49",
+        overview: "-30g farine\n100kg Bamboo",
         pictures: [
             {
               id: 1,
@@ -73,9 +73,9 @@ export default data = [
     },
     {
         id: 4,
-        name: "Meimo 4",
-        date: "20/04/1998 12:00:00",
-        overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
+        name: "Pizza Party",
+        date: "02/11/2020 19:01:37",
+        overview: "Je dois aller acheter une grosse pizza pour la fête ce samedi",
         pictures: [
             {
               id: 1,
@@ -97,8 +97,8 @@ export default data = [
     },
     {
         id: 5,
-        name: "Meimo 5",
-        date: "20/04/1998 12:00:00",
+        name: "First Meimo",
+        date: "15/10/2020 12:04:23",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
             {
@@ -119,5 +119,4 @@ export default data = [
             }
           ]
     },
- 
 ] 
