@@ -29,13 +29,20 @@ const HomeScreen = ({ navigation }) => {
     (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
 
-  const fromHomeUpdateMeimos = (meimos) => {
+  const fromHomeUpdateMeimos = (meimo) => {
     setMeimos(meimos);
+    //meimos[meimo.id].id=meimo.id;
+    //meimos[meimo.id].name=meimo.name;
+    //meimos[meimo.id].date=meimo.date;
+    //meimos[meimo.id].overview=meimo.overview;
+    console.log(meimos[0].name)
   }
 
-  const fromHomeNavigateToDetail= (meimo) => {
-    navigation.navigate("Detail", {meimo: meimos[meimo.id-1]/*, meimos: meimos,fromHomeUpdateMeimos: fromHomeUpdateMeimos*/})
+  const fromHomeNavigateToDetail = (meimo) => {
+    navigation.navigate("Detail", {meimo: meimos[meimo.id-1], meimos: meimos, setMeimos: setMeimos});
   } 
+
+  
 
   return(
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

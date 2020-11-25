@@ -3,11 +3,10 @@ import {StyleSheet, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeed
 
 import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
+import data_meimo_copy from '../data/data_meimo_copy'
 
 //var d = new Date();
-var fulldate = null;
-
-createdMeimo = [
+/*createdMeimo = [
   {
     id: 17,
     name: "",
@@ -32,24 +31,35 @@ createdMeimo = [
       }
     ]
   }
-]
+]*/
 
 const DetailScreen = ({ route, navigation }) => {
 
-  const { meimo, /*meimos, fromHomeUpdateMeimos*/ } = route.params
+  const { meimo, meimos, setMeimos } = route.params;
   
-  const [d, setupD] = useState(new Date());
+  //const [d, setupD] = useState(new Date());
+
+  var d = new Date();
+  var fulldate = null;
+  var name = meimo.name;
+  var overview = meimo.overview;
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
 
   const handleNameTextInputChange = (array, text) => {
-    array.name = text;
+    //array.name = text;
+    name = text;
     console.log(array.name);
+    console.log("----meimos----");
+    console.log(meimos);
+    console.log("----meimos copy----");
+    console.log(data_meimo_copy);
   }
 
   const handleOverviewTextInputChange = (array, text) => {
-    array.overview = text;
+    //array.overview = text;
+    overview = text;
     console.log(array.overview);
   }
 
@@ -69,12 +79,21 @@ const DetailScreen = ({ route, navigation }) => {
   }
 
   const saveData = () => { 
-    setupD(new Date());
+    d = new Date();
     fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
     Keyboard.dismiss(); 
     meimo.date = fulldate;
-    Alert.alert("Saved !","");
+    meimos[meimo.id-1].id=meimo.id;
+    meimos[meimo.id-1].name=name;
+    meimos[meimo.id-1].date=fulldate;
+    meimos[meimo.id-1].overview=overview;
+
+    //meimos[meimo.id].pictures=meimo.pictures;
+    Alert.alert("Saved !", "");
     console.log("saved [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
+    setMeimos(meimos);           //non fonctionnel
+    //setMeimos(data_meimo_copy);  fonctionnel
+    //console.log(meimos[meimo.id].name);
   }
 
   
@@ -90,7 +109,7 @@ const DetailScreen = ({ route, navigation }) => {
               <Button
                 title="< Back"
                 color="#0583F2"
-                onPress= {() => {/*fromHomeUpdateMeimos(meimos);*/ navigation.goBack();}}
+                onPress= {() => {navigation.goBack();}}
               ></Button>
             </View>
 
