@@ -12,8 +12,9 @@ import data from '../data/data_meimo'
 import Navigation from '../navigator/Navigation';
 
 const HomeScreen = ({ navigation }) => {
-
+  
   const [meimos, setMeimos] = useState(data);
+
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
 /*
   date = new Date().getDate(); //Current Date
@@ -29,14 +30,14 @@ const HomeScreen = ({ navigation }) => {
     (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(data) : setMeimos(updatedMeimos);
   }
 
-  const fromHomeUpdateMeimos = (meimo) => {
+  /*const fromHomeUpdateMeimos = (meimo) => {
     setMeimos(meimos);
     //meimos[meimo.id].id=meimo.id;
     //meimos[meimo.id].name=meimo.name;
     //meimos[meimo.id].date=meimo.date;
     //meimos[meimo.id].overview=meimo.overview;
     console.log(meimos[0].name)
-  }
+  }*/
 
   const fromHomeNavigateToDetail = (meimo) => {
     navigation.navigate("Detail", {meimo: meimos[meimo.id-1], meimos: meimos, setMeimos: setMeimos});
@@ -52,7 +53,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.first_container}>
               <View>
                 <Text style={styles.Meimo}>
-                  M
+                  M 
                   <Text style={styles.MeimoInner}>e</Text>
                   im
                   <Text style={styles.MeimoInner}>o </Text>

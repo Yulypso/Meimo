@@ -51,10 +51,10 @@ const DetailScreen = ({ route, navigation }) => {
     //array.name = text;
     name = text;
     console.log(array.name);
-    console.log("----meimos----");
-    console.log(meimos);
-    console.log("----meimos copy----");
-    console.log(data_meimo_copy);
+    //console.log("----meimos----");
+    //console.log(meimos);
+    //console.log("----meimos copy----");
+    //console.log(data_meimo_copy);
   }
 
   const handleOverviewTextInputChange = (array, text) => {
@@ -92,12 +92,9 @@ const DetailScreen = ({ route, navigation }) => {
     Alert.alert("Saved !", "");
     console.log("saved [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
     setMeimos(meimos);           //non fonctionnel
-    //setMeimos(data_meimo_copy);  fonctionnel
+    //setMeimos(data_meimo_copy);  //fonctionnel
     //console.log(meimos[meimo.id].name);
   }
-
-  
-
 
     return (
 
@@ -109,7 +106,7 @@ const DetailScreen = ({ route, navigation }) => {
               <Button
                 title="< Back"
                 color="#0583F2"
-                onPress= {() => {navigation.goBack();}}
+                onPress= {() => {/*navigation.goBack();*/navigation.navigate("Home", {abc:123})}} //CA FONCTIONNE EN LUI DONNANT NIMP ?? 
               ></Button>
             </View>
 
