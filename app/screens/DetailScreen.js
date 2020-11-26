@@ -35,7 +35,7 @@ import data_meimo_copy from '../data/data_meimo_copy'
 
 const DetailScreen = ({ route, navigation }) => {
 
-  const { meimo, meimos, setMeimos } = route.params;
+  const { meimo } = route.params;
   
   //const [d, setupD] = useState(new Date());
 
@@ -82,16 +82,41 @@ const DetailScreen = ({ route, navigation }) => {
     d = new Date();
     fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
     Keyboard.dismiss(); 
-    meimo.date = fulldate;
-    meimos[meimo.id-1].id=meimo.id;
-    meimos[meimo.id-1].name=name;
-    meimos[meimo.id-1].date=fulldate;
-    meimos[meimo.id-1].overview=overview;
+    meimo.id=meimo.id;
+    meimo.name=name;
+    meimo.date=fulldate;
+    meimo.overview=overview;
 
     //meimos[meimo.id].pictures=meimo.pictures;
     Alert.alert("Saved !", "");
     console.log("saved [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
-    setMeimos(meimos);           //non fonctionnel
+    
+    //TO ADD DATA IN MEIMOS
+    /*meimos.push({
+      id: 23,
+      name: "PUSHED",
+      date: "22/11/2020 09:03:56",
+      overview: "Ne pas oublier de prendre son équipement de ski ce jeudi",
+      pictures: [
+          {
+            id: 1,
+            key: require('../assets/Bamboo.png')
+          }, 
+          {
+            id: 2,
+            key: require('../assets/Panda.png')
+          },
+          {
+            id: 3,
+            key : require('../assets/Bamboo.png')
+          },
+          {
+            id: 4,
+            key : require('../assets/settings.png')
+          }
+        ]
+  })*/
+    //setMeimos(meimos);         
     //setMeimos(data_meimo_copy);  //fonctionnel
     //console.log(meimos[meimo.id].name);
   }

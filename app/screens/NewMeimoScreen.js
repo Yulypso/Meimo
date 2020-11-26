@@ -3,13 +3,12 @@ import {StyleSheet, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeed
 
 import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
+import data_meimo_copy from '../data/data_meimo_copy'
 
 //var d = new Date();
-var fulldate = null;
-
-createdMeimo = [
+createdMeimo = 
   {
-    id: 17,
+    id: "",
     name: "",
     date: "",
     overview: "",
@@ -32,24 +31,35 @@ createdMeimo = [
       }
     ]
   }
-]
+
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  //const { meimos } = route.params
-  //TODO
-  const [d, setupD] = useState(new Date());
+  const { meimos } = route.params;
+  
+  //const [d, setupD] = useState(new Date());
+
+  var d = new Date();
+  var fulldate = "";
+  var name = "";
+  var overview = "";
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
 
   const handleNameTextInputChange = (array, text) => {
-    array.name = text;
+    //array.name = text;
+    name = text;
     console.log(array.name);
+    //console.log("----meimos----");
+    //console.log(meimos);
+    //console.log("----meimos copy----");
+    //console.log(data_meimo_copy);
   }
 
   const handleOverviewTextInputChange = (array, text) => {
-    array.overview = text;
+    //array.overview = text;
+    overview = text;
     console.log(array.overview);
   }
 
@@ -69,16 +79,24 @@ const NewMeimoScreen = ({ route, navigation }) => {
   }
 
   const saveData = () => { 
-    setupD(new Date());
+    d = new Date();
     fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
     Keyboard.dismiss(); 
-    createdMeimo[0].date = fulldate;
-    Alert.alert("Saved !","");
-    console.log("saved [" + createdMeimo[0].date + "] : " + createdMeimo[0].name + " : " + createdMeimo[0].overview ); 
+    createdMeimo.id="25";
+    createdMeimo.name=name;
+    createdMeimo.date=fulldate;
+    createdMeimo.overview=overview;
+
+    //meimos[meimo.id].pictures=meimo.pictures;
+    Alert.alert("Saved !", "");
+    console.log("saved [" + createdMeimo.date + "] : " + createdMeimo.name + " : " + createdMeimo.overview ); 
+    
+    //TO ADD DATA IN MEIMOS
+    meimos.push(createdMeimo);
+    //setMeimos(meimos);         
+    //setMeimos(data_meimo_copy);  //fonctionnel
+    //console.log(meimos[meimo.id].name);
   }
-
-  
-
 
     return (
 
@@ -90,7 +108,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
               <Button
                 title="< Back"
                 color="#0583F2"
-                onPress= {() => navigation.goBack()}
+                onPress= {() => {/*navigation.goBack();*/navigation.navigate("Home", {abc:123})}} //CA FONCTIONNE EN LUI DONNANT NIMP ?? 
               ></Button>
             </View>
 
@@ -114,7 +132,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
           <View style={styles.second_container}>
             <TextInput style={styles.insideTextTitle} 
               placeholder='Title' 
-              onChangeText={text => handleNameTextInputChange(createdMeimo[0], text)}
+              onChangeText={text => handleNameTextInputChange(createdMeimo, text)}
               placeholderTextColor='#858A9E'>
             </TextInput>
             
@@ -122,7 +140,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
             <TextInput style={styles.insideText} 
               placeholder='Write your Meimo'
               multiline
-              onChangeText={text => handleOverviewTextInputChange(createdMeimo[0], text)}
+              onChangeText={text => handleOverviewTextInputChange(createdMeimo, text)}
               placeholderTextColor='#858A9E'>
             </TextInput>
 
@@ -133,7 +151,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
-                data={createdMeimo[0].pictures}
+                data={createdMeimo.pictures}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({item}) => <PictureItem meimoPictures={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
                 //ItemSeparatorComponent={MeimoSeparator} 

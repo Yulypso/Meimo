@@ -39,8 +39,8 @@ const HomeScreen = ({ navigation }) => {
     console.log(meimos[0].name)
   }*/
 
-  const fromHomeNavigateToDetail = (meimo) => {
-    navigation.navigate("Detail", {meimo: meimos[meimo.id-1], meimos: meimos, setMeimos: setMeimos});
+  const fromHomeNavigateToDetail = (item) => {
+    navigation.navigate("Detail", {meimo: meimos[item.id-1]});
   } 
 
   
@@ -108,7 +108,7 @@ const HomeScreen = ({ navigation }) => {
 
                 <View style={styles.button_newMeimoContainer}>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate('NewMeimo') }
+                    onPress={() => navigation.navigate('NewMeimo', {meimos:meimos}) }
                   >   
                     <Image
                       source={require('../assets/Bamboo.png')}
