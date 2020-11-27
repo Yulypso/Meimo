@@ -42,7 +42,6 @@ const Navigation = () => {
               name="Home" 
               component={HomeScreen} 
               options={{ 
-                //title: 'Panda Village'
               }}  
         />
         <MainStack.Screen 
@@ -50,7 +49,6 @@ const Navigation = () => {
               component={DetailScreen} 
               options={{ 
                 headerLeft: null
-                //title: 'Panda Village'
               }}  
         />
 
@@ -59,7 +57,6 @@ const Navigation = () => {
               component={SettingScreen} 
               options={{ 
                 headerLeft: null
-                //title: 'Panda Village'
               }}  
         />
     
@@ -96,7 +93,6 @@ const Navigation = () => {
           name="Main" 
           component={MainStackScreen} 
           options={{ 
-            //title: 'Panda Village'
           }}  
         />
 
