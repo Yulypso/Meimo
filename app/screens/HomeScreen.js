@@ -35,12 +35,6 @@ const HomeScreen = ({ navigation }) => {
     console.log(meimos[0].name)
   }*/
 
-  const fromHomeNavigateToDetail = (item) => {
-    navigation.navigate("Detail", {meimo: meimos[item.id-1]});
-  } 
-
-  
-
   return(
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.main_container}>
@@ -80,10 +74,11 @@ const HomeScreen = ({ navigation }) => {
             <MeimoSearch onSearch={handleLoadSearchMeimo}/>
 
             <View style={styles.second_container}>
+              {console.log("added meimo before FLATLIST: "+ meimos[meimos.length-1].name)}
               <FlatList
                 data={meimos}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={fromHomeNavigateToDetail}/>}
+                renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={(item) => navigation.navigate("Detail", {meimo: item})}/>}
                 ItemSeparatorComponent={MeimoSeparator} 
                 /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
                 onEndReached={() => {
@@ -92,6 +87,7 @@ const HomeScreen = ({ navigation }) => {
                     }
                 }}*/
               />
+              {console.log("added meimo after FLATLIST: "+ meimos[meimos.length-1].name)}
             </View>
 
             <View style={styles.third_container}>
