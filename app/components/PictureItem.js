@@ -2,7 +2,6 @@ import React from 'react'
 import {StyleSheet, View, SafeAreaView, Text, Image, TouchableOpacity} from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 
-import data from '../data/data_meimo'
 
 const PictureItem = (props) => {
     //il faudrait pouvoir faire (props, {route , navigation})

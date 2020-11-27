@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MeimoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MeimoTests.m */; };
-		0A16336DED89C47F9CEEDD3E /* libPods-Meimo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D940C8515C0D8D4A857AE59B /* libPods-Meimo-tvOSTests.a */; };
+		105011D048AA7C28B71F8F7F /* libPods-Meimo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B463752815BC481E7C9C75 /* libPods-Meimo-tvOSTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -16,10 +16,10 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MeimoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MeimoTests.m */; };
-		3FA835689966508E23D26B96 /* libPods-Meimo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0EA77AB65213B006FE6D26 /* libPods-Meimo-tvOS.a */; };
+		736C5BB5920A4BC4FF5C61FB /* libPods-Meimo-MeimoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D6D842C63C6C8F341ECF65 /* libPods-Meimo-MeimoTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8E433F52C34ED4B5F32B8377 /* libPods-Meimo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E5C082E48062582E0E4CEC /* libPods-Meimo.a */; };
-		E5D7F29E3D4CE612167F54E9 /* libPods-Meimo-MeimoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EED39F4C8D77055CA726DD6C /* libPods-Meimo-MeimoTests.a */; };
+		B3ED1D9BD523933E1C2733F6 /* libPods-Meimo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E844FBE7052CA24D9629B7EC /* libPods-Meimo.a */; };
+		FF79FC51D9922F58996CCAB1 /* libPods-Meimo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D901685C6B1D1136531F3F93 /* libPods-Meimo-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,23 +50,23 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Meimo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Meimo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Meimo/main.m; sourceTree = "<group>"; };
-		15E5C082E48062582E0E4CEC /* libPods-Meimo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A3FB662CD1C988A9F14C58D /* Pods-Meimo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOSTests/Pods-Meimo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F143951ADF3AB1B4F452641 /* Pods-Meimo-MeimoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-MeimoTests.release.xcconfig"; path = "Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests.release.xcconfig"; sourceTree = "<group>"; };
+		22D6D842C63C6C8F341ECF65 /* libPods-Meimo-MeimoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo-MeimoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* Meimo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meimo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Meimo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meimo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D6374E46C81BF5E8B703E93 /* Pods-Meimo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOSTests/Pods-Meimo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2F17E4839257C0E11D49520D /* Pods-Meimo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo.debug.xcconfig"; path = "Target Support Files/Pods-Meimo/Pods-Meimo.debug.xcconfig"; sourceTree = "<group>"; };
-		4026358BE5C65FD05FE1FF74 /* Pods-Meimo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOS/Pods-Meimo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		5D771EA2FFBD0F03D515E272 /* Pods-Meimo-MeimoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-MeimoTests.debug.xcconfig"; path = "Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		71E1E5C5EA8965C78C4DDDB1 /* Pods-Meimo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOSTests/Pods-Meimo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		37564C4BCF652E4EA94B33D3 /* Pods-Meimo-MeimoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-MeimoTests.debug.xcconfig"; path = "Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Meimo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CC0EA77AB65213B006FE6D26 /* libPods-Meimo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D940C8515C0D8D4A857AE59B /* libPods-Meimo-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E02A03540D1E39644CC1AADA /* Pods-Meimo-MeimoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-MeimoTests.release.xcconfig"; path = "Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests.release.xcconfig"; sourceTree = "<group>"; };
+		92B463752815BC481E7C9C75 /* libPods-Meimo-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5BFD4D7ADEFB27F39E216DD /* Pods-Meimo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOS/Pods-Meimo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		AE3133925CC193C3100675B8 /* Pods-Meimo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo.release.xcconfig"; path = "Target Support Files/Pods-Meimo/Pods-Meimo.release.xcconfig"; sourceTree = "<group>"; };
+		BA9C7305EE70A0FF40300CF9 /* Pods-Meimo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOSTests/Pods-Meimo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		C69CC3CCE5A986019A53D480 /* Pods-Meimo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo.debug.xcconfig"; path = "Target Support Files/Pods-Meimo/Pods-Meimo.debug.xcconfig"; sourceTree = "<group>"; };
+		CB607AF2C6F55932CDB2C850 /* Pods-Meimo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOS/Pods-Meimo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D901685C6B1D1136531F3F93 /* libPods-Meimo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E844FBE7052CA24D9629B7EC /* libPods-Meimo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EED39F4C8D77055CA726DD6C /* libPods-Meimo-MeimoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meimo-MeimoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F634735AA2CDCD884C650869 /* Pods-Meimo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo.release.xcconfig"; path = "Target Support Files/Pods-Meimo/Pods-Meimo.release.xcconfig"; sourceTree = "<group>"; };
-		F7546921B0744EA1C64B232C /* Pods-Meimo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meimo-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Meimo-tvOS/Pods-Meimo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D7F29E3D4CE612167F54E9 /* libPods-Meimo-MeimoTests.a in Frameworks */,
+				736C5BB5920A4BC4FF5C61FB /* libPods-Meimo-MeimoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E433F52C34ED4B5F32B8377 /* libPods-Meimo.a in Frameworks */,
+				B3ED1D9BD523933E1C2733F6 /* libPods-Meimo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FA835689966508E23D26B96 /* libPods-Meimo-tvOS.a in Frameworks */,
+				FF79FC51D9922F58996CCAB1 /* libPods-Meimo-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A16336DED89C47F9CEEDD3E /* libPods-Meimo-tvOSTests.a in Frameworks */,
+				105011D048AA7C28B71F8F7F /* libPods-Meimo-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,26 +141,27 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				15E5C082E48062582E0E4CEC /* libPods-Meimo.a */,
-				EED39F4C8D77055CA726DD6C /* libPods-Meimo-MeimoTests.a */,
-				CC0EA77AB65213B006FE6D26 /* libPods-Meimo-tvOS.a */,
-				D940C8515C0D8D4A857AE59B /* libPods-Meimo-tvOSTests.a */,
+				E844FBE7052CA24D9629B7EC /* libPods-Meimo.a */,
+				22D6D842C63C6C8F341ECF65 /* libPods-Meimo-MeimoTests.a */,
+				D901685C6B1D1136531F3F93 /* libPods-Meimo-tvOS.a */,
+				92B463752815BC481E7C9C75 /* libPods-Meimo-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		64BCEDE9732318E0F25E7081 /* Pods */ = {
+		4C720914DE6B4AE675D1AB29 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2F17E4839257C0E11D49520D /* Pods-Meimo.debug.xcconfig */,
-				F634735AA2CDCD884C650869 /* Pods-Meimo.release.xcconfig */,
-				5D771EA2FFBD0F03D515E272 /* Pods-Meimo-MeimoTests.debug.xcconfig */,
-				E02A03540D1E39644CC1AADA /* Pods-Meimo-MeimoTests.release.xcconfig */,
-				F7546921B0744EA1C64B232C /* Pods-Meimo-tvOS.debug.xcconfig */,
-				4026358BE5C65FD05FE1FF74 /* Pods-Meimo-tvOS.release.xcconfig */,
-				2D6374E46C81BF5E8B703E93 /* Pods-Meimo-tvOSTests.debug.xcconfig */,
-				71E1E5C5EA8965C78C4DDDB1 /* Pods-Meimo-tvOSTests.release.xcconfig */,
+				C69CC3CCE5A986019A53D480 /* Pods-Meimo.debug.xcconfig */,
+				AE3133925CC193C3100675B8 /* Pods-Meimo.release.xcconfig */,
+				37564C4BCF652E4EA94B33D3 /* Pods-Meimo-MeimoTests.debug.xcconfig */,
+				1F143951ADF3AB1B4F452641 /* Pods-Meimo-MeimoTests.release.xcconfig */,
+				CB607AF2C6F55932CDB2C850 /* Pods-Meimo-tvOS.debug.xcconfig */,
+				A5BFD4D7ADEFB27F39E216DD /* Pods-Meimo-tvOS.release.xcconfig */,
+				1A3FB662CD1C988A9F14C58D /* Pods-Meimo-tvOSTests.debug.xcconfig */,
+				BA9C7305EE70A0FF40300CF9 /* Pods-Meimo-tvOSTests.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -179,7 +180,7 @@
 				00E356EF1AD99517003FC87E /* MeimoTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				64BCEDE9732318E0F25E7081 /* Pods */,
+				4C720914DE6B4AE675D1AB29 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -204,11 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MeimoTests" */;
 			buildPhases = (
-				52EF52EDE3916B29BD88CE34 /* [CP] Check Pods Manifest.lock */,
+				FB21A432FA2A489CBA8BD5F4 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				A667FA812BE9DD93282B809E /* [CP] Copy Pods Resources */,
+				0FB261EAA4A5E57DB0E895CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,13 +225,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Meimo" */;
 			buildPhases = (
-				2E38A1DF6A2909B7B13506EC /* [CP] Check Pods Manifest.lock */,
+				4B8354F246A6A22857A7A0B7 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				5F8486E951A90E9EE5C756A0 /* [CP] Copy Pods Resources */,
+				C4AAD005342AB343C5A43C12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,7 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Meimo-tvOS" */;
 			buildPhases = (
-				39263D08A80A1A844A9525A5 /* [CP] Check Pods Manifest.lock */,
+				FC6DBE4C780C3AE03FEAD44A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -265,7 +266,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Meimo-tvOSTests" */;
 			buildPhases = (
-				EE9CE0B115FDF611C72C8026 /* [CP] Check Pods Manifest.lock */,
+				049781C84A48077581E4FDF9 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -293,7 +294,6 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 82XXPFWF3K;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -375,7 +375,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		049781C84A48077581E4FDF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meimo-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FB261EAA4A5E57DB0E895CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -391,7 +431,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		2E38A1DF6A2909B7B13506EC /* [CP] Check Pods Manifest.lock */ = {
+		4B8354F246A6A22857A7A0B7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,29 +453,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		39263D08A80A1A844A9525A5 /* [CP] Check Pods Manifest.lock */ = {
+		C4AAD005342AB343C5A43C12 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${PODS_ROOT}/Target Support Files/Pods-Meimo/Pods-Meimo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Meimo-tvOS-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meimo/Pods-Meimo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		52EF52EDE3916B29BD88CE34 /* [CP] Check Pods Manifest.lock */ = {
+		FB21A432FA2A489CBA8BD5F4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -457,43 +493,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5F8486E951A90E9EE5C756A0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Meimo/Pods-Meimo-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meimo/Pods-Meimo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A667FA812BE9DD93282B809E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meimo-MeimoTests/Pods-Meimo-MeimoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE9CE0B115FDF611C72C8026 /* [CP] Check Pods Manifest.lock */ = {
+		FC6DBE4C780C3AE03FEAD44A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,7 +508,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Meimo-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Meimo-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -608,7 +608,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D771EA2FFBD0F03D515E272 /* Pods-Meimo-MeimoTests.debug.xcconfig */;
+			baseConfigurationReference = 37564C4BCF652E4EA94B33D3 /* Pods-Meimo-MeimoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -631,7 +631,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E02A03540D1E39644CC1AADA /* Pods-Meimo-MeimoTests.release.xcconfig */;
+			baseConfigurationReference = 1F143951ADF3AB1B4F452641 /* Pods-Meimo-MeimoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -651,12 +651,11 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F17E4839257C0E11D49520D /* Pods-Meimo.debug.xcconfig */;
+			baseConfigurationReference = C69CC3CCE5A986019A53D480 /* Pods-Meimo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82XXPFWF3K;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Meimo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -675,12 +674,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F634735AA2CDCD884C650869 /* Pods-Meimo.release.xcconfig */;
+			baseConfigurationReference = AE3133925CC193C3100675B8 /* Pods-Meimo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82XXPFWF3K;
 				INFOPLIST_FILE = Meimo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -697,7 +695,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7546921B0744EA1C64B232C /* Pods-Meimo-tvOS.debug.xcconfig */;
+			baseConfigurationReference = CB607AF2C6F55932CDB2C850 /* Pods-Meimo-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -725,7 +723,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4026358BE5C65FD05FE1FF74 /* Pods-Meimo-tvOS.release.xcconfig */;
+			baseConfigurationReference = A5BFD4D7ADEFB27F39E216DD /* Pods-Meimo-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -753,7 +751,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D6374E46C81BF5E8B703E93 /* Pods-Meimo-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 1A3FB662CD1C988A9F14C58D /* Pods-Meimo-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -780,7 +778,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71E1E5C5EA8965C78C4DDDB1 /* Pods-Meimo-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = BA9C7305EE70A0FF40300CF9 /* Pods-Meimo-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

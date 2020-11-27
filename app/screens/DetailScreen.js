@@ -39,6 +39,8 @@ const DetailScreen = ({ route, navigation }) => {
   
   //const [d, setupD] = useState(new Date());
 
+  console.log("Details received : " + meimo.name);
+
   var d = new Date();
   var fulldate = null;
   var name = meimo.name;

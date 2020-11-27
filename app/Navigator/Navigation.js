@@ -9,8 +9,6 @@ import NewMeimoScreen from '../screens/NewMeimoScreen'
 import DetailScreen from '../screens/DetailScreen'
 import SettingScreen from '../screens/SettingScreen'
 
-import { saveData } from '../screens/NewMeimoScreen'
-
 const Navigation = () => {
 
   const RootStack = createStackNavigator();

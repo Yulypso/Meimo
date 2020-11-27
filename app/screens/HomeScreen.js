@@ -5,11 +5,7 @@ import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
 import MeimoSearch from '../components/MeimoSearch'
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
 import data from '../data/data_meimo'
-import Navigation from '../navigator/Navigation';
 
 const HomeScreen = ({ navigation }) => {
   
@@ -53,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.first_container}>
               <View>
                 <Text style={styles.Meimo}>
-                  M 
+                  M{console.log("added meimo: "+ meimos[meimos.length-1].name)} 
                   <Text style={styles.MeimoInner}>e</Text>
                   im
                   <Text style={styles.MeimoInner}>o </Text>

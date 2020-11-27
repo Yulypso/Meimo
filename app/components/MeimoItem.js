@@ -4,7 +4,7 @@ import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 const MeimoItem = (props) => {
     //il faudrait pouvoir faire (props, {route , navigation})
    //// const meimo=props.meimo;
-   const {meimo, fromHomeNavigateToDetail} = props;
+   const {meimo, meimos, fromHomeNavigateToDetail} = props;
     //const { navigate } = props.navigation;
     //console.log(fromHomeNavigateToDetail.toString() /* :'( */ ); 
 
