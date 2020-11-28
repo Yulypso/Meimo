@@ -8,6 +8,7 @@ import HomeScreen from '../screens/HomeScreen'
 import NewMeimoScreen from '../screens/NewMeimoScreen'
 import DetailScreen from '../screens/DetailScreen'
 import SettingScreen from '../screens/SettingScreen'
+import RegisterScreen from '../screens/RegisterScreen'
 
 const Navigation = () => {
 
@@ -23,7 +24,7 @@ const Navigation = () => {
   const MainStackScreen = () => {
     return(
       <MainStack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Register"
         mode="card"
         screenOptions= {{
           headerTitleStyle: {
@@ -38,6 +39,12 @@ const Navigation = () => {
         }}
         
       >
+        <MainStack.Screen 
+              name="Register" 
+              component={RegisterScreen} 
+              options={{ 
+              }}  
+        />
         <MainStack.Screen 
               name="Home" 
               component={HomeScreen} 
