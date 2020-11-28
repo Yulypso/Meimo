@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, Alert, StatusBar, FlatList,Image, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Button} from 'react-native';
 
 import MeimoItem from '../components/MeimoItem';
@@ -8,9 +8,19 @@ import MeimoSearch from '../components/MeimoSearch'
 import data from '../data/data_meimo'
 
 const HomeScreen = ({ navigation }) => {
-  
+
+
+
   const [meimos, setMeimos] = useState(data);
 
+  useEffect(() => {
+    //api Call here
+  }, []);
+
+  //order meimos by date desc
+  meimos.sort((a, b) => new Date(b.date) - new Date(a.date.day))
+
+  console.log("juste date "+new Date(meimos[0].date).getDate())
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
 /*
   date = new Date().getDate(); //Current Date

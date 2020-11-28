@@ -2,7 +2,7 @@ export default data = [
     {
         id: 1,
         name: "Equipment",
-        date: "22/11/2020 09:03:56",
+        date: "Sat Nov 28 2020 01:22:49 GMT+0100 (CET)",
         overview: "Ne pas oublier de prendre son équipement de ski ce jeudi",
         pictures: [
             {
@@ -74,7 +74,7 @@ export default data = [
     {
         id: 4,
         name: "Pizza Party",
-        date: "02/11/2020 19:01:37",
+        date: "30/11/2020 19:01:37",
         overview: "Je dois aller acheter une grosse pizza pour la fête ce samedi",
         pictures: [
             {
