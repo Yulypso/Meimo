@@ -15,7 +15,7 @@ const MeimoItem = (props) => {
             >
                 {console.log("meimo get in MeimoITEM: "+ meimo.name)}
                 <View style={styles.header_container}>
-                    <Text style={styles.meimo_nameText}>{meimo.name}</Text>
+                    <Text style={styles.meimo_nameText} numberOfLines={1}>{meimo.name}</Text>
                     <Text style={styles.meimo_dateText}>{meimo.date}</Text>
                 </View>
         
@@ -35,14 +35,14 @@ const styles = StyleSheet.create ({
         marginStart: "3%",
         marginEnd: "3%",
         marginTop: "1%",
-        marginBottom: "1%"
+        marginBottom: "1%",
         //backgroundColor: 'yellow',
     },
     header_container: {
         flex:3,
         flexDirection: "row",
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
         //backgroundColor: 'green',
     },
     meimo_nameText: {
@@ -55,8 +55,8 @@ const styles = StyleSheet.create ({
         fontFamily: 'PingFang HK',
     },
     meimo_dateText: {
-        flex: 3.5,
-        fontSize: 15,
+        flex: 2,
+        fontSize: 10,
         color: 'grey',
         fontWeight: 'bold',
         textAlign: 'right',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create ({
         fontStyle: 'normal',
         color: 'darkgrey',
         flex: 7,
-        fontSize: 15,
+        fontSize: 12,
         fontFamily: 'PingFang HK',
         marginLeft: "2%",
         //backgroundColor: 'pink',

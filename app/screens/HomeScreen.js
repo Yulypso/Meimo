@@ -9,8 +9,6 @@ import data from '../data/data_meimo'
 
 const HomeScreen = ({ navigation }) => {
 
-
-
   const [meimos, setMeimos] = useState(data);
 
   useEffect(() => {
@@ -18,9 +16,8 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   //order meimos by date desc
-  meimos.sort((a, b) => new Date(b.date) - new Date(a.date.day))
+  meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-  console.log("juste date "+new Date(meimos[0].date).getDate())
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
 /*
   date = new Date().getDate(); //Current Date
@@ -110,7 +107,7 @@ const HomeScreen = ({ navigation }) => {
 
                 <View style={styles.button_newMeimoContainer}>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate('NewMeimo', {meimos:meimos}) }
+                    onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, lastId:Math.max.apply(Math, meimos.map((o) => o.id.toString()))}) }
                   >   
                     <Image
                       source={require('../assets/Bamboo.png')}

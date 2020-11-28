@@ -5,39 +5,14 @@ import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
 import data_meimo_copy from '../data/data_meimo_copy'
 
-//var d = new Date();
-createdMeimo = 
-  {
-    id: "",
-    name: "",
-    date: "",
-    overview: "",
-    pictures: [
-      {
-        id: 1,
-        key: require('../assets/Bamboo.png')
-      }, 
-      {
-        id: 2,
-        key: require('../assets/Panda.png')
-      },
-      {
-        id: 3,
-        key : require('../assets/Bamboo.png')
-      },
-      {
-        id: 4,
-        key : require('../assets/settings.png')
-      }
-    ]
-  }
-
-
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  const { meimos } = route.params;
+  const { meimos, lastId } = route.params;
+
   
   //const [d, setupD] = useState(new Date());
+  //lastId : to get the max ID among our meimos 
+  console.log("lastId" + lastId)
 
   var d = new Date();
   var fulldate = "";
@@ -47,20 +22,20 @@ const NewMeimoScreen = ({ route, navigation }) => {
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
 
-  const handleNameTextInputChange = (array, text) => {
+  const handleNameTextInputChange = (text) => {
     //array.name = text;
     name = text;
-    console.log(array.name);
+    console.log(name);
     //console.log("----meimos----");
     //console.log(meimos);
     //console.log("----meimos copy----");
     //console.log(data_meimo_copy);
   }
 
-  const handleOverviewTextInputChange = (array, text) => {
+  const handleOverviewTextInputChange = (text) => {
     //array.overview = text;
     overview = text;
-    console.log(array.overview);
+    console.log(overview);
   }
 
   /*const convertListToMap = (list) => {
@@ -82,17 +57,38 @@ const NewMeimoScreen = ({ route, navigation }) => {
     d = new Date();
     fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
     Keyboard.dismiss(); 
-    createdMeimo.id="25";
-    createdMeimo.name=name;
-    createdMeimo.date=fulldate;
-    createdMeimo.overview=overview;
 
     //meimos[meimo.id].pictures=meimo.pictures;
     Alert.alert("Saved !", "");
-    console.log("saved [" + createdMeimo.date + "] : " + createdMeimo.name + " : " + createdMeimo.overview ); 
+    console.log("saved: " + lastId+1 + " [" + new Date().toString() + "] : " + name + " : " + overview ); 
     
     //TO ADD DATA IN MEIMOS
-    meimos.push(createdMeimo);
+    meimos.push(
+      {
+        id: lastId+1,
+        name: name,
+        date: new Date().toString(),
+        overview: overview,
+        pictures: [
+          {
+            id: 1,
+            key: require('../assets/Bamboo.png')
+          }, 
+          {
+            id: 2,
+            key: require('../assets/Panda.png')
+          },
+          {
+            id: 3,
+            key : require('../assets/Bamboo.png')
+          },
+          {
+            id: 4,
+            key : require('../assets/settings.png')
+          }
+        ]
+      }
+    );
     //setMeimos(meimos);         
     //setMeimos(data_meimo_copy);  //fonctionnel
     //console.log(meimos[meimo.id].name);
@@ -132,7 +128,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
           <View style={styles.second_container}>
             <TextInput style={styles.insideTextTitle} 
               placeholder='Title' 
-              onChangeText={text => handleNameTextInputChange(createdMeimo, text)}
+              onChangeText={text => handleNameTextInputChange(text)}
               placeholderTextColor='#858A9E'>
             </TextInput>
             
@@ -140,7 +136,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
             <TextInput style={styles.insideText} 
               placeholder='Write your Meimo'
               multiline
-              onChangeText={text => handleOverviewTextInputChange(createdMeimo, text)}
+              onChangeText={text => handleOverviewTextInputChange(text)}
               placeholderTextColor='#858A9E'>
             </TextInput>
 
@@ -151,7 +147,24 @@ const NewMeimoScreen = ({ route, navigation }) => {
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
-                data={createdMeimo.pictures}
+                data={[
+                  {
+                    id: 1,
+                    key: require('../assets/Bamboo.png')
+                  }, 
+                  {
+                    id: 2,
+                    key: require('../assets/Panda.png')
+                  },
+                  {
+                    id: 3,
+                    key : require('../assets/Bamboo.png')
+                  },
+                  {
+                    id: 4,
+                    key : require('../assets/settings.png')
+                  }
+                ]}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({item}) => <PictureItem meimoPictures={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
                 //ItemSeparatorComponent={MeimoSeparator} 

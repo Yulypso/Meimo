@@ -26,7 +26,7 @@ export default data = [
     {
         id: 2,
         name: "Liste de courses ",
-        date: "12/11/2020 17:12:03",
+        date: "Fri Nov 27 2020 01:22:49 GMT+0100 (CET)",
         overview: "-Bamboo\n-Pavé de saumon\n-Courgette\n-Pommes\n-Petits biscuits",
         pictures: [
             {
@@ -50,7 +50,7 @@ export default data = [
     {
         id: 3,
         name: "Recette gateau",
-        date: "08/11/2020 14:42:49",
+        date: "Sun Nov 29 2020 01:22:49 GMT+0100 (CET)",
         overview: "-30g farine\n100kg Bamboo",
         pictures: [
             {
@@ -74,7 +74,7 @@ export default data = [
     {
         id: 4,
         name: "Pizza Party",
-        date: "30/11/2020 19:01:37",
+        date: "Thu Nov 26 2020 01:22:49 GMT+0100 (CET)",
         overview: "Je dois aller acheter une grosse pizza pour la fête ce samedi",
         pictures: [
             {
@@ -98,7 +98,7 @@ export default data = [
     {
         id: 5,
         name: "First Meimo",
-        date: "15/10/2020 12:04:23",
+        date: "Sat Nov 28 2020 05:22:49 GMT+0100 (CET)",
         overview: "Salut les amis c'est mon meimo et j'aime beaucoup manger des bamboos car je suis un panda",
         pictures: [
             {

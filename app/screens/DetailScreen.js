@@ -82,7 +82,7 @@ const DetailScreen = ({ route, navigation }) => {
 
   const saveData = () => { 
     d = new Date();
-    fulldate = (d.getDate() < 10 ? '0' : '') + d.getDate().toString() + "/" + ((d.getMonth()+1) < 10 ? '0' : '') + (d.getMonth()+1).toString() + "/" + d.getFullYear().toString() + " " + (d.getHours() < 10 ? '0' : '') + d.getHours().toString() + ":" + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes().toString() + ":" + (d.getSeconds() < 10 ? '0' : '') + d.getSeconds().toString();
+    fulldate = new Date().toString();
     Keyboard.dismiss(); 
     meimo.id=meimo.id;
     meimo.name=name;
