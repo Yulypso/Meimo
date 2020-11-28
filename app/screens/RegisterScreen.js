@@ -1,9 +1,9 @@
 import React, {useState, createRef} from 'react';
-import { StyleSheet, TextInput, View, Text, Image, KeyboardAvoidingView, Keyboard, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Button, TextInput, View, Text, Image, KeyboardAvoidingView, Keyboard, TouchableOpacity, ScrollView } from 'react-native';
 
 import Loader from '../components/loader';
 
-const RegisterScreen = (props) => {
+const RegisterScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword]= useState('');
@@ -98,7 +98,19 @@ const RegisterScreen = (props) => {
   }*/
   return (
     <View style={{flex: 1, backgroundColor: '#2F3138'}}>
+       
+
         <View style={styles.headerContainer}>
+            <View style={styles.ButtonsContainer}>
+                <View style={styles.backButtonContainer}>
+                <Button
+                    title="< Back"
+                    color="#0583F2"
+                    onPress= {() => {/*navigation.goBack();*/navigation.navigate("Login", {abc:123})}} //CA FONCTIONNE EN LUI DONNANT NIMP ?? 
+                ></Button>
+                </View>
+            </View>
+
             <View style={styles.first_container}>
                 <View>
                     <Text style={styles.Meimo}>
@@ -259,6 +271,24 @@ const styles = StyleSheet.create({
     textShadowColor:'#c5c5c5',
     textShadowOffset:{width: 2, height: 2},
     textShadowRadius:1,
+  },
+
+  ButtonsContainer: {
+    flex: 0.2,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginLeft: '0%',
+    marginTop: Platform.OS === 'ios' ? "12%" : "3%",
+    //backgroundColor: 'red',
+  },
+  backButtonContainer: {
+    flex:0.3,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    //backgroundColor: 'yellow',
+    borderRadius: 999
   },
 });
 

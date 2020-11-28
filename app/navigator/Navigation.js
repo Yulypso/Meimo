@@ -9,6 +9,7 @@ import NewMeimoScreen from '../screens/NewMeimoScreen'
 import DetailScreen from '../screens/DetailScreen'
 import SettingScreen from '../screens/SettingScreen'
 import RegisterScreen from '../screens/RegisterScreen'
+import LoginScreen from '../screens/LoginScreen'
 
 const Navigation = () => {
 
@@ -24,7 +25,7 @@ const Navigation = () => {
   const MainStackScreen = () => {
     return(
       <MainStack.Navigator
-        initialRouteName="Register"
+        initialRouteName="Login"
         mode="card"
         screenOptions= {{
           headerTitleStyle: {
@@ -43,12 +44,21 @@ const Navigation = () => {
               name="Register" 
               component={RegisterScreen} 
               options={{ 
+                headerLeft: null
+              }}  
+        />
+        <MainStack.Screen 
+              name="Login" 
+              component={LoginScreen} 
+              options={{ 
+                headerLeft: null
               }}  
         />
         <MainStack.Screen 
               name="Home" 
               component={HomeScreen} 
               options={{ 
+                headerLeft: null
               }}  
         />
         <MainStack.Screen 
