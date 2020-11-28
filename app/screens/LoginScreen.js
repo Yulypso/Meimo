@@ -128,7 +128,9 @@ const LoginScreen = ({navigation}) => {
                 <TouchableOpacity
                     style={styles.buttonStyle}
                     activeOpacity={0.5}
-                    onPress={() => console.log("SIGN IN : " + userEmail + " " + userPassword)}>
+                    onPress={() => {console.log("SIGN IN : " + userEmail + " " + userPassword); 
+                                    navigation.navigate('Home', {abc:123}) //check password with database first
+                                }}> 
                     <Text style={styles.buttonTextStyle}>
                         SIGN IN
                     </Text>
