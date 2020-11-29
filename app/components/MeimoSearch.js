@@ -3,7 +3,7 @@ import {StyleSheet, View, TouchableWithoutFeedback, Keyboard, TextInput } from '
 
 const MeimoSearch = (props) => {
 
-    var searched_text='';
+    var searched_text=props.reset;
 
     const handleSearchMeimo = () => {
         const meimoName = searched_text;

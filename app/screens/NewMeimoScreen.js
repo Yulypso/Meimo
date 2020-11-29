@@ -10,15 +10,18 @@ const NewMeimoScreen = ({ route, navigation }) => {
 
   const postData = (meimo) => {
     console.log("posted data : " + meimo.name);
-    fetch('http://localhost:5000/meimos/posted', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      /*body: JSON.stringify({
-        data: null
-      })*/
+    fetch(
+      //'https://meimojsapirest.herokuapp.com/meimos'
+      'http://localhost:5000/meimos'
+      ,{
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          meimo: meimo
+      })
       //console.log("json data posted: " + data.length)),
     });
   }
@@ -29,7 +32,8 @@ const NewMeimoScreen = ({ route, navigation }) => {
   
   //const [d, setupD] = useState(new Date());
   //lastId : to get the max ID among our meimos 
-  //console.log("lastId " + lastId)
+  console.log("lastId " + lastId)
+  //console.log("size meimos: " + meimos.length)
 
   var d = new Date();
   var fulldate = "";
@@ -80,7 +84,34 @@ const NewMeimoScreen = ({ route, navigation }) => {
     console.log("saved: " + lastId+1 + " [" + new Date().toString() + "] : " + name + " : " + overview ); 
     
     //TO ADD DATA IN MEIMOS
-    meimos.push(
+    /*meimos.push(
+      {
+        id: lastId+1,
+        name: name,
+        date: new Date().toString(),
+        overview: overview,
+        pictures: [
+          {
+            id: 1,
+            key: require('../assets/Bamboo.png')
+          }, 
+          {
+            id: 2,
+            key: require('../assets/Panda.png')
+          },
+          {
+            id: 3,
+            key : require('../assets/Bamboo.png')
+          },
+          {
+            id: 4,
+            key : require('../assets/settings.png')
+          }
+        ]
+      }
+    );*/
+
+    temporaryMeimos.push(
       {
         id: lastId+1,
         name: name,
@@ -107,39 +138,12 @@ const NewMeimoScreen = ({ route, navigation }) => {
       }
     );
 
-    temporaryMeimos.concat(
-      {
-        id: lastId+2,
-        name: name,
-        date: new Date().toString(),
-        overview: overview,
-        pictures: [
-          {
-            id: 1,
-            key: require('../assets/Bamboo.png')
-          }, 
-          {
-            id: 2,
-            key: require('../assets/Panda.png')
-          },
-          {
-            id: 3,
-            key : require('../assets/Bamboo.png')
-          },
-          {
-            id: 4,
-            key : require('../assets/settings.png')
-          }
-        ]
-      }
-    );
-
-    /*postData({
+    postData({
       id: lastId+1,
       name: name,
       date: new Date().toString(),
       overview: overview
-    })*/
+    })
 
     setSetIsEmpty(false);
     navigation.navigate("Home", {abc:123}); //push + {abc:123} = Render 1 fois, and 2 push = Render 2 times => use concat

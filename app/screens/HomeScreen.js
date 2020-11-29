@@ -17,26 +17,25 @@ const HomeScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
 
+
+  const fetchData = async () => {
+    setLoading(true);
+    const response = await fetch(
+      //'https://meimojsapirest.herokuapp.com/meimos'
+      'http://localhost:5000/meimos'
+    )
+    .then(response => response.json()
+    .then(data => {console.log(data), setMeimos(data), setTemporaryMeimos(data), setIsEmpty(false)}))
+
+    /*meimos.length == 0 ? 
+      (console.log("nothing in the fetched data"),
+      setIsEmpty(true))
+      :null*/
+    
+    setLoading(false);
+  };
+
   useEffect(() => {
-
-    //'https://meimojsapirest.herokuapp.com/meimos/posted'
-
-    const fetchData = async () => {
-      setLoading(true);
-      const response = await fetch(
-        'http://localhost:5000/meimos/posted'
-      )
-      .then(response => response.json()
-      .then(data => {console.log(data), setMeimos(data), setTemporaryMeimos(data), setIsEmpty(false)}))
-
-      data.length == 0 ? 
-        (console.log("nothing in the fetched data"),
-        setIsEmpty(true))
-        :null
-      
-      setLoading(false);
-    };
-
 
     console.log("fetched data: ");
     fetchData();
@@ -74,7 +73,7 @@ const HomeScreen = ({ navigation }) => {
 
   const handleLoadSearchMeimo = (a) => {
     const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
-    (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(temporaryMeimos) : (setMeimos(updatedMeimos));
+    (a.meimoName.length == 0) ? /*fetchData()*/setMeimos(temporaryMeimos): (setMeimos(updatedMeimos));
   }
 
   /*const fromHomeUpdateMeimos = (meimo) => {
@@ -122,7 +121,7 @@ const HomeScreen = ({ navigation }) => {
               </View>
             </View>
             
-            <MeimoSearch onSearch={handleLoadSearchMeimo}/>
+            <MeimoSearch onSearch={handleLoadSearchMeimo} reset=''/>
 
             <View style={styles.second_container}>
               <FlatList
@@ -150,7 +149,7 @@ const HomeScreen = ({ navigation }) => {
                 <View style={styles.button_newMeimoContainer}>
                 {isEmpty &&
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
+                      onPress={() => (() => fetchData(), navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:5, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
@@ -160,7 +159,7 @@ const HomeScreen = ({ navigation }) => {
 
                 {!isEmpty &&
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, meimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
+                      onPress={() => (() => fetchData(), navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, temporaryMeimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
