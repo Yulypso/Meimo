@@ -4,41 +4,13 @@ import {StyleSheet, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeed
 import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
 
-//var d = new Date();
-/*createdMeimo = [
-  {
-    id: 17,
-    name: "",
-    date: "",
-    overview: "",
-    pictures: [
-      {
-        id: 1,
-        key: require('../assets/Bamboo.png')
-      }, 
-      {
-        id: 2,
-        key: require('../assets/Panda.png')
-      },
-      {
-        id: 3,
-        key : require('../assets/Bamboo.png')
-      },
-      {
-        id: 4,
-        key : require('../assets/settings.png')
-      }
-    ]
-  }
-]*/
 
 const DetailScreen = ({ route, navigation }) => {
 
   const { meimo } = route.params;
-  
-  //const [d, setupD] = useState(new Date());
 
-  console.log("Details received : " + meimo.name);
+
+  console.log("Details received : " + meimo._id);
 
   var d = new Date();
   var fulldate = null;
@@ -83,6 +55,7 @@ const DetailScreen = ({ route, navigation }) => {
     d = new Date();
     fulldate = new Date().toString();
     Keyboard.dismiss(); 
+    meimo._id=meimo._id;
     meimo.id=meimo.id;
     meimo.name=name;
     meimo.date=fulldate;
@@ -90,7 +63,7 @@ const DetailScreen = ({ route, navigation }) => {
 
     //meimos[meimo.id].pictures=meimo.pictures;
     Alert.alert("Saved !", "");
-    console.log("saved [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
+    console.log("saved " + meimo._id + " [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
     
     //TO ADD DATA IN MEIMOS
     /*meimos.push({

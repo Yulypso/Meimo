@@ -18,19 +18,21 @@ const HomeScreen = ({ navigation }) => {
   const [isEmpty, setIsEmpty] = useState(true);
 
 
-  const fetchData = async () => {
+  const fetchData = async (isStart) => {
     setLoading(true);
-    const response = await fetch(
-      //'https://meimojsapirest.herokuapp.com/meimos'
-      'http://localhost:5000/meimos'
-    )
-    .then(response => response.json()
-    .then(data => {console.log(data), setMeimos(data), setTemporaryMeimos(data), temporaryMeimos.length == 0 ? setIsEmpty(true) : setIsEmpty(false)}))
 
-    /*meimos.length == 0 ? 
-      (console.log("nothing in the fetched data"),
-      setIsEmpty(true))
-      :null*/
+      const response = await fetch(
+        //'https://meimojsapirest.herokuapp.com/meimos'
+        'http://localhost:5000/meimos'
+      )
+      .then(response => response.json()
+      .then(data => {
+        console.log(data)
+        ,setMeimos(data)
+        ,setTemporaryMeimos(data)
+        ,((temporaryMeimos.length == 0 || meimos.length == 0 || data.length == 0) ? setIsEmpty(true) : setIsEmpty(false))
+        ,setQuery(2) //change Query 1 time to call fetchData 2 times and rerender the screen. 
+      }));
     
     setLoading(false);
   };
@@ -41,7 +43,6 @@ const HomeScreen = ({ navigation }) => {
     fetchData();
     
   }, [query]); //execute effect only if query has changed.
-
 
 
   if(!isEmpty) {
