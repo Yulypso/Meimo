@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, LogBox, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
 
 import PictureItem from '../components/PictureItem'
-import data from '../data/data_meimo'
-import data_meimo_copy from '../data/data_meimo_copy'
+import fakedata from '../data/data_meimo'
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
@@ -17,10 +16,9 @@ const NewMeimoScreen = ({ route, navigation }) => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      /*body: JSON.stringify({
+      body: JSON.stringify({
         data: meimo
-      },*/
-      body: meimo,
+      })
       //console.log("json data posted: " + data.length)),
     });
   }
@@ -31,7 +29,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
   
   //const [d, setupD] = useState(new Date());
   //lastId : to get the max ID among our meimos 
-  console.log("lastId " + lastId)
+  //console.log("lastId " + lastId)
 
   var d = new Date();
   var fulldate = "";

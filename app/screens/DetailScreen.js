@@ -3,7 +3,6 @@ import {StyleSheet, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeed
 
 import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
-import data_meimo_copy from '../data/data_meimo_copy'
 
 //var d = new Date();
 /*createdMeimo = [

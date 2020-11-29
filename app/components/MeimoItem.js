@@ -13,7 +13,7 @@ const MeimoItem = (props) => {
             <TouchableOpacity 
                 onPress={() => fromHomeNavigateToDetail(meimo)}
             >
-                {console.log("meimo get in MeimoITEM: "+ meimo.name)}
+                {/*console.log("meimo get in MeimoITEM: "+ meimo.name)*/}
                 <View style={styles.header_container}>
                     <Text style={styles.meimo_nameText} numberOfLines={1}>{meimo.name}</Text>
                     <Text style={styles.meimo_dateText}>{meimo.date}</Text>
