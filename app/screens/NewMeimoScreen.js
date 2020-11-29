@@ -6,7 +6,7 @@ import fakedata from '../data/data_meimo'
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  const { meimos, lastId, setSetIsEmpty} = route.params;
+  const { meimos, temporaryMeimos, lastId, setSetIsEmpty} = route.params;
 
   const postData = (meimo) => {
     console.log("posted data : " + meimo.name);
@@ -16,9 +16,9 @@ const NewMeimoScreen = ({ route, navigation }) => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        data: meimo
-      })
+      /*body: JSON.stringify({
+        data: null
+      })*/
       //console.log("json data posted: " + data.length)),
     });
   }
@@ -33,8 +33,8 @@ const NewMeimoScreen = ({ route, navigation }) => {
 
   var d = new Date();
   var fulldate = "";
-  var name = "";
-  var overview = "";
+  var name = "Untitled";
+  var overview = "No additionnal text";
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
@@ -107,14 +107,42 @@ const NewMeimoScreen = ({ route, navigation }) => {
       }
     );
 
-    postData({
+    temporaryMeimos.concat(
+      {
+        id: lastId+2,
+        name: name,
+        date: new Date().toString(),
+        overview: overview,
+        pictures: [
+          {
+            id: 1,
+            key: require('../assets/Bamboo.png')
+          }, 
+          {
+            id: 2,
+            key: require('../assets/Panda.png')
+          },
+          {
+            id: 3,
+            key : require('../assets/Bamboo.png')
+          },
+          {
+            id: 4,
+            key : require('../assets/settings.png')
+          }
+        ]
+      }
+    );
+
+    /*postData({
       id: lastId+1,
       name: name,
       date: new Date().toString(),
       overview: overview
-    })
+    })*/
 
     setSetIsEmpty(false);
+    navigation.navigate("Home", {abc:123}); //push + {abc:123} = Render 1 fois, and 2 push = Render 2 times => use concat
     //setMeimos(meimos);         
     //setMeimos(data_meimo_copy);  //fonctionnel
     //console.log(meimos[meimo.id].name);

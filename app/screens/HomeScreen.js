@@ -12,6 +12,7 @@ import fakedata from '../data/data_meimo';
 const HomeScreen = ({ navigation }) => {
 
   const [meimos, setMeimos] = useState([]);
+  const [temporaryMeimos, setTemporaryMeimos] = useState([]);
   const [query, setQuery] = useState(0);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
@@ -26,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
         'http://localhost:5000/meimos/posted'
       )
       .then(response => response.json()
-      .then(data => {console.log(data), setMeimos(data), setIsEmpty(false)}))
+      .then(data => {console.log(data), setMeimos(data), setTemporaryMeimos(data), setIsEmpty(false)}))
 
       data.length == 0 ? 
         (console.log("nothing in the fetched data"),
@@ -54,7 +55,7 @@ const HomeScreen = ({ navigation }) => {
       //postData();
 
       //order meimos by date desc
-     // meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
+      meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
     //}
   }
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
@@ -73,7 +74,7 @@ const HomeScreen = ({ navigation }) => {
 
   const handleLoadSearchMeimo = (a) => {
     const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
-    (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(meimos) : setMeimos(updatedMeimos);
+    (a.meimoName.length == 0 || updatedMeimos.length == 0) ? setMeimos(temporaryMeimos) : (setMeimos(updatedMeimos));
   }
 
   /*const fromHomeUpdateMeimos = (meimo) => {
@@ -126,7 +127,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.second_container}>
               <FlatList
                 data={meimos}
-                keyExtractor={(item) => item._id.toString()}
+                keyExtractor={(item) => item.id.toString()}
                 renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={(item) => navigation.navigate("Detail", {meimo: item})}/>}
                 ItemSeparatorComponent={MeimoSeparator} 
                 /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
@@ -149,7 +150,7 @@ const HomeScreen = ({ navigation }) => {
                 <View style={styles.button_newMeimoContainer}>
                 {isEmpty &&
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, lastId:0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
+                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
@@ -159,7 +160,7 @@ const HomeScreen = ({ navigation }) => {
 
                 {!isEmpty &&
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, lastId:Math.max.apply(Math, meimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
+                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, meimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
