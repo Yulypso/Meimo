@@ -14,25 +14,41 @@ const HomeScreen = ({ navigation }) => {
   const [meimos, setMeimos] = useState([]);
   const [query, setQuery] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(true);
 
   useEffect(() => {
 
     const fetchData = async () => {
       setLoading(true);
       const response = await fetch(
-        'https://meimojsapirest.herokuapp.com/meimos'
+        //'https://meimojsapirest.herokuapp.com/meimos/posted'
+        'http://localhost:5000/meimos/posted'
       );
       const data = await response.json();
-      setMeimos(data.data);
+
+      data.length == 0 ? 
+        (console.log("nothing in the fetched data"),
+        setIsEmpty(true))
+        :(setMeimos(data.data),
+        setIsEmpty(false));
+      
       setLoading(false);
     };
 
+
+    console.log("fetched data: ");
     fetchData();
     
   }, [query]); //execute effect only if query has changed.
 
-  if(meimos.length > 0) {
+
+
+  if(!isEmpty) {
     console.log(meimos);
+    console.log(meimos.length)
+ 
+    //postData();
+
     //order meimos by date desc
     meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
   }
@@ -45,6 +61,10 @@ const HomeScreen = ({ navigation }) => {
   min = new Date().getMinutes(); //Current Minutes
   sec = new Date().getSeconds(); //Current Seconds
   //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}*/
+
+  const setSetIsEmpty = (item) => {
+    setIsEmpty(item);
+  }
 
   const handleLoadSearchMeimo = (a) => {
     const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
@@ -122,14 +142,28 @@ const HomeScreen = ({ navigation }) => {
                 </View>
 
                 <View style={styles.button_newMeimoContainer}>
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, lastId:Math.max.apply(Math, meimos.map((o) => o.id.toString()))}) }
-                  >   
-                    <Image
-                      source={require('../assets/Bamboo.png')}
-                      style={styles.buttonImageNewMeimo}
-                      />
-                  </TouchableOpacity>
+                {isEmpty &&
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, lastId:0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
+                    >   
+                      <Image
+                        source={require('../assets/Bamboo.png')}
+                        style={styles.buttonImageNewMeimo}
+                        />
+                    </TouchableOpacity>}
+
+                {!isEmpty &&
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('NewMeimo', {meimos:meimos, lastId:Math.max.apply(Math, meimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) }
+                    >   
+                      <Image
+                        source={require('../assets/Bamboo.png')}
+                        style={styles.buttonImageNewMeimo}
+                        />
+                    </TouchableOpacity>}
+
+                
+                  
                 </View>
                 
               </View>

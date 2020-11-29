@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, LogBox, Alert, TextInput, SafeAreaView, Button, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, View, Text, StatusBar, FlatList,Image, TouchableOpacity} from 'react-native';
 
 import PictureItem from '../components/PictureItem'
 import data from '../data/data_meimo'
@@ -7,12 +7,31 @@ import data_meimo_copy from '../data/data_meimo_copy'
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  const { meimos, lastId } = route.params;
+  const { meimos, lastId, setSetIsEmpty} = route.params;
 
+  const postData = (meimo) => {
+    console.log("posted data : " + meimo.name);
+    fetch('http://localhost:5000/meimos/posted', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      /*body: JSON.stringify({
+        data: meimo
+      },*/
+      body: meimo,
+      //console.log("json data posted: " + data.length)),
+    });
+  }
+
+  LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
   
   //const [d, setupD] = useState(new Date());
   //lastId : to get the max ID among our meimos 
-  console.log("lastId" + lastId)
+  console.log("lastId " + lastId)
 
   var d = new Date();
   var fulldate = "";
@@ -89,6 +108,15 @@ const NewMeimoScreen = ({ route, navigation }) => {
         ]
       }
     );
+
+    postData({
+      id: lastId+1,
+      name: name,
+      date: new Date().toString(),
+      overview: overview
+    })
+
+    setSetIsEmpty(false);
     //setMeimos(meimos);         
     //setMeimos(data_meimo_copy);  //fonctionnel
     //console.log(meimos[meimo.id].name);
