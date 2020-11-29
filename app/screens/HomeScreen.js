@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
       'http://localhost:5000/meimos'
     )
     .then(response => response.json()
-    .then(data => {console.log(data), setMeimos(data), setTemporaryMeimos(data), setIsEmpty(false)}))
+    .then(data => {console.log(data), setMeimos(data), setTemporaryMeimos(data), temporaryMeimos.length == 0 ? setIsEmpty(true) : setIsEmpty(false)}))
 
     /*meimos.length == 0 ? 
       (console.log("nothing in the fetched data"),
@@ -93,7 +93,7 @@ const HomeScreen = ({ navigation }) => {
             <Loader loading={loading} />
               <View>
                 <Text style={styles.Meimo}>
-                  M{} 
+                  M 
                   <Text style={styles.MeimoInner}>e</Text>
                   im
                   <Text style={styles.MeimoInner}>o </Text>
@@ -149,7 +149,7 @@ const HomeScreen = ({ navigation }) => {
                 <View style={styles.button_newMeimoContainer}>
                 {isEmpty &&
                     <TouchableOpacity
-                      onPress={() => (() => fetchData(), navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:5, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
+                      onPress={() => (() => fetchData(), navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId: 0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
