@@ -5,19 +5,41 @@ import MeimoItem from '../components/MeimoItem';
 import MeimoSeparator from '../components/MeimoSeparator'
 import MeimoSearch from '../components/MeimoSearch'
 
-import data from '../data/data_meimo'
+import Loader from '../components/loader';
+import data from '../data/data_meimo';
+
 
 const HomeScreen = ({ navigation }) => {
 
-  const [meimos, setMeimos] = useState(data);
+  const [meimos, setMeimos] = useState([]);
+  const [responseData, setResponseData] = useState('');
+  const [query, setQuery] = useState(0);
+  const [status, setStatus] = useState('idle');
 
   useEffect(() => {
-    //api Call here
-  }, []);
+    if (query) return;
 
-  //order meimos by date desc
-  meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
+    console.log(responseData)
 
+    const fetchData = async () => {
+      setStatus('fetching');
+      const response = await fetch(
+        'https://meimojsapirest.herokuapp.com/meimos'
+      );
+      setQuery(1);
+      const data = await response.json();
+      setMeimos(data.data);
+      setStatus('fetched');
+  };
+
+  fetchData();
+  }, [query]);
+
+  if(meimos.length > 0) {
+    console.log(meimos);
+    //order meimos by date desc
+    meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
+  }
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
 /*
   date = new Date().getDate(); //Current Date
@@ -50,7 +72,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.first_container}>
               <View>
                 <Text style={styles.Meimo}>
-                  M{console.log("added meimo: "+ meimos[meimos.length-1].name)} 
+                  M{} 
                   <Text style={styles.MeimoInner}>e</Text>
                   im
                   <Text style={styles.MeimoInner}>o </Text>
@@ -81,7 +103,6 @@ const HomeScreen = ({ navigation }) => {
             <MeimoSearch onSearch={handleLoadSearchMeimo}/>
 
             <View style={styles.second_container}>
-              {console.log("added meimo before FLATLIST: "+ meimos[meimos.length-1].name)}
               <FlatList
                 data={meimos}
                 keyExtractor={(item) => item.id.toString()}
@@ -94,8 +115,7 @@ const HomeScreen = ({ navigation }) => {
                     }
                 }}*/
               />
-              {console.log("added meimo after FLATLIST: "+ meimos[meimos.length-1].name)}
-            </View>
+              </View>
 
             <View style={styles.third_container}>
             <View style={styles.content_thirdContainer}>

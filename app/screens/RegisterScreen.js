@@ -11,6 +11,7 @@ const RegisterScreen = ({navigation}) => {
 
   const [loading, setLoading] = useState(false);
 
+
 /*
   const handleSubmitButton = () => {
     setErrortext('');
