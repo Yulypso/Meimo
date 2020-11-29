@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }) => {
   const [meimos, setMeimos] = useState([]);
   const [responseData, setResponseData] = useState('');
   const [query, setQuery] = useState(0);
-  const [status, setStatus] = useState('idle');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (query) return;
@@ -22,14 +22,14 @@ const HomeScreen = ({ navigation }) => {
     console.log(responseData)
 
     const fetchData = async () => {
-      setStatus('fetching');
+      setLoading(true);
       const response = await fetch(
         'https://meimojsapirest.herokuapp.com/meimos'
       );
       setQuery(1);
       const data = await response.json();
       setMeimos(data.data);
-      setStatus('fetched');
+      setLoading(false);
   };
 
   fetchData();
@@ -68,8 +68,8 @@ const HomeScreen = ({ navigation }) => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.main_container}>
         <StatusBar barStyle='light-content' StatusBar backgroundColor="#454752"/>
-
             <View style={styles.first_container}>
+            <Loader loading={loading} />
               <View>
                 <Text style={styles.Meimo}>
                   M{} 
