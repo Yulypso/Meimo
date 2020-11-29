@@ -12,28 +12,24 @@ import data from '../data/data_meimo';
 const HomeScreen = ({ navigation }) => {
 
   const [meimos, setMeimos] = useState([]);
-  const [responseData, setResponseData] = useState('');
   const [query, setQuery] = useState(0);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (query) return;
-
-    console.log(responseData)
 
     const fetchData = async () => {
       setLoading(true);
       const response = await fetch(
         'https://meimojsapirest.herokuapp.com/meimos'
       );
-      setQuery(1);
       const data = await response.json();
       setMeimos(data.data);
       setLoading(false);
-  };
+    };
 
-  fetchData();
-  }, [query]);
+    fetchData();
+    
+  }, [query]); //execute effect only if query has changed.
 
   if(meimos.length > 0) {
     console.log(meimos);
