@@ -6,7 +6,7 @@ import fakedata from '../data/data_meimo'
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  const { meimos, temporaryMeimos, lastId, setSetIsEmpty} = route.params;
+  const { meimos, fetchData, temporaryMeimos, lastId, setSetIsEmpty} = route.params;
 
   const postData = (meimo) => {
     console.log("posted data : " + meimo.name);
@@ -82,35 +82,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
     //meimos[meimo.id].pictures=meimo.pictures;
     Alert.alert("Saved !", "");
     console.log("saved: " + lastId+1 + " [" + new Date().toString() + "] : " + name + " : " + overview ); 
-    
-    //TO ADD DATA IN MEIMOS
-    /*meimos.push(
-      {
-        id: lastId+1,
-        name: name,
-        date: new Date().toString(),
-        overview: overview,
-        pictures: [
-          {
-            id: 1,
-            key: require('../assets/Bamboo.png')
-          }, 
-          {
-            id: 2,
-            key: require('../assets/Panda.png')
-          },
-          {
-            id: 3,
-            key : require('../assets/Bamboo.png')
-          },
-          {
-            id: 4,
-            key : require('../assets/settings.png')
-          }
-        ]
-      }
-    );*/
-
+  
     temporaryMeimos.push(
       {
         id: lastId+1,
@@ -146,7 +118,10 @@ const NewMeimoScreen = ({ route, navigation }) => {
     })
 
     setSetIsEmpty(false);
-    navigation.navigate("Home", {abc:123}); //push + {abc:123} = Render 1 fois, and 2 push = Render 2 times => use concat
+    //fetchData();
+    temp = lastId+1;
+    navigation.navigate("Home", {abc: fetchData(temp)}); //push + {abc:123} = Render 1 fois, and 2 push = Render 2 times => use concat
+    
     //setMeimos(meimos);         
     //setMeimos(data_meimo_copy);  //fonctionnel
     //console.log(meimos[meimo.id].name);

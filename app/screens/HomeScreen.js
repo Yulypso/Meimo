@@ -13,13 +13,15 @@ const HomeScreen = ({ navigation }) => {
 
   const [meimos, setMeimos] = useState([]);
   const [temporaryMeimos, setTemporaryMeimos] = useState([]);
-  const [query, setQuery] = useState(0);
+  const [query, setQuery] = useState(-2);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
 
-
-  const fetchData = async (isStart) => {
+  const fetchData = async (valueQuery) => {
     setLoading(true);
+
+    if(query == -2)
+      valueQuery = -1;
 
       const response = await fetch(
         //'https://meimojsapirest.herokuapp.com/meimos'
@@ -31,7 +33,7 @@ const HomeScreen = ({ navigation }) => {
         ,setMeimos(data)
         ,setTemporaryMeimos(data)
         ,((temporaryMeimos.length == 0 || meimos.length == 0 || data.length == 0) ? setIsEmpty(true) : setIsEmpty(false))
-        ,setQuery(2) //change Query 1 time to call fetchData 2 times and rerender the screen. 
+        ,setQuery(valueQuery) //change Query 1 time to call fetchData 2 times and rerender the screen. 
       }));
     
     setLoading(false);
@@ -73,7 +75,7 @@ const HomeScreen = ({ navigation }) => {
   }
 
   const handleLoadSearchMeimo = (a) => {
-    const updatedMeimos = meimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
+    const updatedMeimos = temporaryMeimos.filter(i => i.name.toLowerCase().includes(a.meimoName.trim().toLowerCase())); 
     (a.meimoName.length == 0) ? /*fetchData()*/setMeimos(temporaryMeimos): (setMeimos(updatedMeimos));
   }
 
@@ -143,14 +145,14 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.content_thirdContainer}>
 
                 <View style={styles.numberOfMeimoContainer}>
-                  {!isEmpty && meimos.length > 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimos</Text>}
-                  {!isEmpty && meimos.length <= 1 && <Text style={styles.numberOfMeimoText}>{meimos.length} Meimo</Text>}
+                  {!isEmpty && temporaryMeimos.length > 1 && <Text style={styles.numberOfMeimoText}>{temporaryMeimos.length} Meimos</Text>}
+                  {!isEmpty && temporaryMeimos.length <= 1 && <Text style={styles.numberOfMeimoText}>{temporaryMeimos.length} Meimo</Text>}
                 </View>
 
                 <View style={styles.button_newMeimoContainer}>
                 {isEmpty &&
                     <TouchableOpacity
-                      onPress={() => (() => fetchData(), navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId: 0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
+                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId: 0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
@@ -160,7 +162,7 @@ const HomeScreen = ({ navigation }) => {
 
                 {!isEmpty &&
                     <TouchableOpacity
-                      onPress={() => (() => fetchData(), navigation.navigate('NewMeimo', {meimos:meimos, temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, temporaryMeimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
+                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, temporaryMeimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
