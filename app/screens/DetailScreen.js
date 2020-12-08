@@ -9,7 +9,7 @@ const DetailScreen = ({ route, navigation }) => {
 
   const { meimo } = route.params;
 
-
+  console.log("current ID: " + meimo.id);
   console.log("Details received : " + meimo._id);
 
   var d = new Date();
@@ -19,6 +19,25 @@ const DetailScreen = ({ route, navigation }) => {
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
+
+
+  const postData = (meimo) => {
+    console.log("posted data : " + meimo.name);
+    fetch(
+      //'https://meimojsapirest.herokuapp.com/meimos/update'
+      'http://localhost:5000/meimos/update'
+      ,{
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          meimo: meimo
+      })
+      //console.log("json data posted: " + data.length)),
+    });
+  }
 
   const handleNameTextInputChange = (array, text) => {
     //array.name = text;
@@ -65,6 +84,14 @@ const DetailScreen = ({ route, navigation }) => {
     Alert.alert("Saved !", "");
     console.log("saved " + meimo._id + " [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
     
+    postData({
+      _id: meimo._id,
+      id: meimo.id,
+      name: meimo.name,
+      date: meimo.date,
+      overview: meimo.overview
+    })
+
     //TO ADD DATA IN MEIMOS
     /*meimos.push({
       id: 23,

@@ -38,7 +38,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
   var d = new Date();
   var fulldate = "";
   var name = "Untitled";
-  var overview = "";
+  var overview = " ";
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
