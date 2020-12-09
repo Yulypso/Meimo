@@ -56,7 +56,9 @@ Others <\br>
 > You can connect and access to your meimos.
 > If you have no account, you navigate to the register screen.
 
-<img align="left" width="252" height="506" src="./pictures/1_Login.png"/>
+<p align="center" width="100%">
+    <img align="left" width="252" height="506" src="./pictures/1_Login.png"/>
+</p>
 
 ---
 
@@ -64,8 +66,10 @@ Others <\br>
 
 > Here is the register screen, let's create our account. 
 
-<img align="left" width="252" height="506" src="./pictures/2_register.png"/>
-<img align="center" width="252" height="506" src="./pictures/3_register_fill.png"/>
+<p align="center" width="100%">
+    <img align="left" width="252" height="506" src="./pictures/2_register.png"/>
+    <img align="center" width="252" height="506" src="./pictures/3_register_fill.png"/>
+</p>
 
 ---
 
