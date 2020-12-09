@@ -13,8 +13,8 @@ const RegisterScreen = ({navigation}) => {
   const postData = (user) => {
     console.log("posted data : " + user.email);
     fetch(
-      //'https://meimojsapirest.herokuapp.com/users'
-      'http://localhost:5000/users'
+      'https://meimojsapirest.herokuapp.com/users'
+      //'http://localhost:5000/users'
       ,{
         method: 'POST',
         headers: {
@@ -57,6 +57,7 @@ const response = await fetch(
           });
           Alert.alert("Registered!", "");
           console.log("handle Registered : " + userEmail + " " + userPassword + " " + userConfirmPassword);
+          navigation.navigate("Home", {userEmail: userEmail});
         }
         else {
           Alert.alert("Password are not identical", "");
@@ -240,7 +241,7 @@ const response = await fetch(
 
             <TouchableOpacity
                 style={styles.buttonStyle}
-                onPress={() => {saveUser(); navigation.navigate("Home", {userEmail: userEmail})}}
+                onPress={() => {saveUser()}}
                 activeOpacity={0.5}
             >
                 <Text style={styles.buttonTextStyle}>

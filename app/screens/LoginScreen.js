@@ -7,10 +7,10 @@ import { StyleSheet, Button, TextInput, View, Text, ScrollView, Image, Keyboard,
 
 import Loader from '../components/loader';
 
-const LoginScreen = ({navigation}) => {
-  
-  var userEmail='';
-  var userPassword='';
+const LoginScreen = ({ route, navigation}) => {
+
+  const [userEmail, setUserEmailN] = useState('');
+  const [userPassword, setUserPasswordN] = useState('');
   const [loading, setLoading] = useState(false);
 
   var userData;
@@ -20,8 +20,8 @@ const LoginScreen = ({navigation}) => {
     console.log("fetching ... "+ userEmail.toLowerCase() + " " + userPassword);
     console.log('http://localhost:5000/users/'+userEmail.toLowerCase()+'/'+userPassword)
     const response = fetch(
-      //'https://meimojsapirest.herokuapp.com/users'
-      'http://localhost:5000/users/'+userEmail+'/'+userPassword
+      'https://meimojsapirest.herokuapp.com/users/'+userEmail+'/'+userPassword
+      //'http://localhost:5000/users/'+userEmail+'/'+userPassword
     )
     .then(response => response.json()
     .then(data => {
@@ -40,11 +40,13 @@ const LoginScreen = ({navigation}) => {
   };
 
   const setUserEmail = (text) => {
-    userEmail=text;
+    //userEmail=text;
+    setUserEmailN(text);
   }
 
   const setUserPassword = (text) => {
-    userPassword=text;
+    //userPassword=text;
+    setUserPasswordN(text);
   }
   
   const verify = () => {

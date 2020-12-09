@@ -26,8 +26,8 @@ const HomeScreen = ({ route, navigation }) => {
       valueQuery = -1;
 
       const response = await fetch(
-        //'https://meimojsapirest.herokuapp.com/meimos'
-        'http://localhost:5000/meimos/'+userEmail
+        'https://meimojsapirest.herokuapp.com/meimos/'+userEmail
+        //'http://localhost:5000/meimos/'+userEmail
       )
       .then(response => response.json()
       .then(data => {
@@ -49,7 +49,7 @@ const HomeScreen = ({ route, navigation }) => {
     //fetchUser(userEmail);
     console.log("get route: Logged in as: "+ userEmail);
 
-  }, [query]); //execute effect only if query has changed.
+  }, [query, userEmail]); //execute effect only if query has changed.
 
 
   if(!isEmpty) {
@@ -124,7 +124,7 @@ const HomeScreen = ({ route, navigation }) => {
                 <TouchableOpacity
                   onPress={() => {
                     Alert.alert("Disconnected", "");
-                    navigation.navigate('Login')}
+                    navigation.navigate('Login', {a:123})}
                   }
                 >
                   <Image

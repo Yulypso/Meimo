@@ -13,8 +13,8 @@ const NewMeimoScreen = ({ route, navigation }) => {
   const postData = (meimo) => {
     console.log("posted data : " + meimo.name);
     fetch(
-      //'https://meimojsapirest.herokuapp.com/meimos'
-      'http://localhost:5000/meimos'
+      'https://meimojsapirest.herokuapp.com/meimos'
+      //'http://localhost:5000/meimos'
       ,{
         method: 'POST',
         headers: {

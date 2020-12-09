@@ -24,8 +24,8 @@ const DetailScreen = ({ route, navigation }) => {
   const postData = (meimo) => {
     console.log("posted data : " + meimo.name);
     fetch(
-      //'https://meimojsapirest.herokuapp.com/meimos/update'
-      'http://localhost:5000/meimos/update'
+      'https://meimojsapirest.herokuapp.com/meimos/update'
+      //'http://localhost:5000/meimos/update'
       ,{
         method: 'POST',
         headers: {
@@ -35,7 +35,6 @@ const DetailScreen = ({ route, navigation }) => {
         body: JSON.stringify({
           meimo: meimo
       })
-      //console.log("json data posted: " + data.length)),
     });
   }
 

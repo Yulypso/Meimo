@@ -53,6 +53,7 @@ const Navigation = () => {
               options={{ 
                 headerLeft: null
               }}  
+              initialParams={{reset:0}}
         />
         <MainStack.Screen 
               name="Home" 
