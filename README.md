@@ -56,66 +56,66 @@ Others <\br>
 > You can connect and access to your meimos.
 > If you have no account, you navigate to the register screen.
 
-<img align="left" width="499" height="1008" src="./pictures/1_Login.png"/>
+<img align="left" width="350" height="704" src="./pictures/1_Login.png"/>
 
 ### Register Screen
 
 > Here is the register screen, let's create our account. 
 
-<img align="left" width="499" height="1008" src="./pictures/2_register.png"/>
-<img align="center" width="499" height="1008" src="./pictures/3_register_fill.png"/>
+<img align="left" width="350" height="704" src="./pictures/2_register.png"/>
+<img align="center" width="350" height="704" src="./pictures/3_register_fill.png"/>
 
 ### Home Screen
 
 > Our account has been created, this is the Home screen, where our Meimo's list will be displayed.
 
-<img align="left" width="499" height="1008" src="./pictures/4_registered.png"/>
+<img align="left" width="350" height="704" src="./pictures/4_registered.png"/>
 
 ### New Meimo Screen
 
 > Let's create our first Meimo!
 > And some others ...
 
-<img align="left" width="499" height="1008" src="./pictures/5_new_meimo.png"/>
-<img align="center" width="499" height="1008" src="./pictures/6_new_meimo_fill.png"/>
-<img align="right" width="499" height="1008" src="./pictures/7_meimo_created.png"/>
+<img align="left" width="350" height="704" src="./pictures/5_new_meimo.png"/>
+<img align="center" width="350" height="704" src="./pictures/6_new_meimo_fill.png"/>
+<img align="right" width="350" height="704" src="./pictures/7_meimo_created.png"/>
 
 ### Search bar feature
 
 > An amazing feature was set up for you to search your meimo among several of them!
 
-<img align="left" width="499" height="1008" src="./pictures/8_added_meimo.png"/>
-<img align="center" width="499" height="1008" src="./pictures/9_Search.png"/>
+<img align="left" width="350" height="704" src="./pictures/8_added_meimo.png"/>
+<img align="center" width="350" height="704" src="./pictures/9_Search.png"/>
 
 ### Details Screen
 
-<img align="left" width="499" height="1008" src="./pictures/10_edited_meimo.png"/>
-<img align="center" width="499" height="1008" src="./pictures/11_edited_meimo_saved.png"/>
+<img align="left" width="350" height="704" src="./pictures/10_edited_meimo.png"/>
+<img align="center" width="350" height="704" src="./pictures/11_edited_meimo_saved.png"/>
 
 > the last added/edited Meimo goes to the top of the list.
 
-<img align="left" width="499" height="1008" src="./pictures/12_last_edited_at_top.png"/>
+<img align="left" width="350" height="704" src="./pictures/12_last_edited_at_top.png"/>
 
 ### Disconnect from the App
 
 > You can sign out from the App.
 
-<img align="left" width="499" height="1008" src="./pictures/13_disconnected.png"/>
+<img align="left" width="350" height="704" src="./pictures/13_disconnected.png"/>
 
 ### Login Screen
 
 > You can now reconnect to your personal meimo space.
 > It automatically fetch back all your saved meimos!
 
-<img align="left" width="499" height="1008" src="./pictures/14_login_fill.png"/>
-<img align="center" width="499" height="1008" src="./pictures/15_fetched_meimos.png"/>
+<img align="left" width="350" height="704" src="./pictures/14_login_fill.png"/>
+<img align="center" width="350" height="704" src="./pictures/15_fetched_meimos.png"/>
 
 ### Feature not implemented
 
 > I thought about adding a feature that would allow users to add their photos to their meimo before saving it. 
 > Here is the concept which is functional only locally. Photos are not saved.
 
-<img align="left" width="499" height="1008" src="./pictures/16_pictures_feature.png"/>
+<img align="left" width="350" height="704" src="./pictures/16_pictures_feature.png"/>
 
 ---
 
