@@ -8,9 +8,11 @@
 The Meimo app was designed to allows users to write notes to memorize several things. It is possible to save text and images in your Meimos and also has a registration and login system.
 The app is available for IOS & Android OS.
 
-<img align="center" width="300" height="200" src="./pictures/logo.png"/>
+<p align="center" width="100%">
+    <img align="center" width="300" height="200" src="./pictures/logo.png"/>
+</p>
 
-Designed using my own RESTful API Meimo. Here you will find the link to the project and its documentation.
+Designed using __my own RESTful API Meimo__. Here you will find the __link to the project and its documentation__.
 
 - [Meimo ApiREST](https://github.com/Yulypso/MeimoHerokuJsApiREST)
 
@@ -29,20 +31,20 @@ The project includes the use of several technical features and methods. So here 
 
 several features have been implemented within this application. 
 
-Screens <\br>
+__Screens__ 
 - Login Screen
 - Register Screen
 - Home Screen
 - NewMeimo Screen
 - Detail Screen <\br>
 
-Components <\br>
+__Components__ 
 - loader
 - Meimo item
 - Search bar
 - Picture item
 
-Others <\br>
+__Others__
 - Navigator
 - Meimo List
 
