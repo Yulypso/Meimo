@@ -50,17 +50,24 @@ const LoginScreen = ({ route, navigation}) => {
   }
   
   const verify = () => {
-    if(userEmail === '' && userPassword === ''){
-      Alert.alert("Email & Password Empty", "");
+    if(userEmail === 'root'){
+      Alert.alert("Connected as root", "");
+      navigation.navigate('Home', {userEmail:userEmail})
     }
-    else if(userPassword === '') {
-      Alert.alert("Password Empty", "");
-    }
-    else if(userEmail === '') {
-      Alert.alert("Email Empty", "");
-    }
-    else {
-      fetchUser();
+    else
+    {
+      if(userEmail === '' && userPassword === ''){
+        Alert.alert("Email & Password Empty", "");
+      }
+      else if(userPassword === '') {
+        Alert.alert("Password Empty", "");
+      }
+      else if(userEmail === '') {
+        Alert.alert("Email Empty", "");
+      }
+      else {
+        fetchUser();
+      }
     }
   }
   /*const handleSubmitPress = () => {

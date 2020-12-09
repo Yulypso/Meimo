@@ -13,8 +13,8 @@ const HomeScreen = ({ route, navigation }) => {
 
   const { userEmail } = route.params;
 
-  const [meimos, setMeimos] = useState([]);
-  const [temporaryMeimos, setTemporaryMeimos] = useState([]);
+  const [meimos, setMeimos] = useState(userEmail === 'root'?fakedata:[]);
+  const [temporaryMeimos, setTemporaryMeimos] = useState(userEmail === 'root'?fakedata:[]);
   const [query, setQuery] = useState(-2);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
@@ -44,7 +44,8 @@ const HomeScreen = ({ route, navigation }) => {
   useEffect(() => {
 
     console.log("fetched data: ");
-    fetchData();
+    userEmail === 'root'?'':fetchData();
+    
 
     //fetchUser(userEmail);
     console.log("get route: Logged in as: "+ userEmail);
@@ -161,7 +162,17 @@ const HomeScreen = ({ route, navigation }) => {
                 </View>
 
                 <View style={styles.button_newMeimoContainer}>
-                {isEmpty &&
+                {isEmpty && userEmail === 'root' &&
+                    <TouchableOpacity
+                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId: 5, 'setSetIsEmpty': (item) => setSetIsEmpty(item), userEmail:userEmail}) )}
+                    >   
+                      <Image
+                        source={require('../assets/Bamboo.png')}
+                        style={styles.buttonImageNewMeimo}
+                        />
+                    </TouchableOpacity>}
+
+                {isEmpty && userEmail !== 'root' &&
                     <TouchableOpacity
                       onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId: 0, 'setSetIsEmpty': (item) => setSetIsEmpty(item), userEmail:userEmail}) )}
                     >   

@@ -74,7 +74,7 @@ const DetailScreen = ({ route, navigation }) => {
     fulldate = new Date().toString();
     Keyboard.dismiss(); 
     meimo._id=meimo._id;
-    meimo.userid=meimo.userid;
+    meimo.useremail=meimo.useremail;
     meimo.id=meimo.id;
     meimo.name=name;
     meimo.date=fulldate;
@@ -84,10 +84,11 @@ const DetailScreen = ({ route, navigation }) => {
     Alert.alert("Saved !", "");
     console.log("saved " + meimo._id + " " + meimo.userid + " [" + meimo.date + "] : " + meimo.name + " : " + meimo.overview ); 
     
-    postData({
+  
+    meimo.useremail === 'root'?'':postData({
       _id: meimo._id,
       id: meimo.id,
-      userid: meimo.userid,
+      useremail: meimo.useremail,
       name: meimo.name,
       date: meimo.date,
       overview: meimo.overview

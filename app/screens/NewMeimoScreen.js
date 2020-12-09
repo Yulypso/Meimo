@@ -84,7 +84,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
     //meimos[meimo.id].pictures=meimo.pictures;
     Alert.alert("Meimo created!", "");
     console.log("saved: " + lastId+1 + " [" + new Date().toString() + "] : " + name + " : " + overview ); 
-  
+
     temporaryMeimos.push(
       {
         id: lastId+1,
@@ -113,7 +113,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
       }
     );
 
-    postData({
+    userEmail === 'root'?console.log("root"): postData({
       id: lastId+1,
       useremail: userEmail,
       name: name,
