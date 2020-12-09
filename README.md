@@ -118,8 +118,9 @@ __Others__
 
 > the last added/edited Meimo goes to the top of the list.
 
-<img align="left" width="252" height="506" src="./pictures/12_last_edited_at_top.png"/>
-
+<p align="center" width="100%">
+    <img align="center" width="252" height="506" src="./pictures/12_last_edited_at_top.png"/>
+</p>
 ---
 
 ### Disconnect from the App
