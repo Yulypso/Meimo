@@ -1,17 +1,91 @@
 import React, {useState, createRef} from 'react';
-import { StyleSheet, Button, TextInput, View, Text, Image, KeyboardAvoidingView, Keyboard, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Button, Alert, TextInput, View, Text, Image, KeyboardAvoidingView, Keyboard, TouchableOpacity, ScrollView } from 'react-native';
 
 import Loader from '../components/loader';
 
 const RegisterScreen = ({navigation}) => {
-  const [username, setUsername] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword]= useState('');
-  const [userConfirmPassword, setUserConfirmPassword] = useState('');
-
   const [loading, setLoading] = useState(false);
 
+  var userEmail='';
+  var userPassword='';
+  var userConfirmPassword='';
 
+  const postData = (user) => {
+    console.log("posted data : " + user.email);
+    fetch(
+      //'https://meimojsapirest.herokuapp.com/users'
+      'http://localhost:5000/users'
+      ,{
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: user
+        })
+      })
+  }
+
+/*
+const response = await fetch(
+        //'https://meimojsapirest.herokuapp.com/meimos'
+        'http://localhost:5000/meimos'
+      )
+      .then(response => response.json()
+      .then(data => {
+        console.log(data)
+        ,setMeimos(data)
+        ,setTemporaryMeimos(data)
+        ,((temporaryMeimos.length == 0 || meimos.length == 0 || data.length == 0) ? setIsEmpty(true) : setIsEmpty(false))
+        ,setQuery(valueQuery) //change Query 1 time to call fetchData 2 times and rerender the screen. 
+      }));
+*/
+
+
+
+  const saveUser = () => {
+    if(userPassword != '' && userConfirmPassword != '') {
+
+      if(userEmail === '')
+        Alert.alert("Email is empty!", "");
+      else {
+        if(userPassword === userConfirmPassword){
+          postData({
+            email: userEmail,
+            password: userPassword,
+          });
+          Alert.alert("Registered!", "");
+          console.log("handle Registered : " + userEmail + " " + userPassword + " " + userConfirmPassword);
+        }
+        else {
+          Alert.alert("Password are not identical", "");
+        }
+      }
+    }
+    else {
+      if(userEmail === '' && userPassword === '')
+        Alert.alert("Email & Password are empty", "");
+      else if(userPassword === '')
+        Alert.alert("Password is empty", "");
+      else if(userEmail === '')
+        Alert.alert("Email is empty", "");
+    }
+    console.log('saved user');
+  }
+
+
+  const handleUserEmailTextInputChange = (text) => {
+    userEmail = text;
+  }
+
+  const handleUserPasswordTextInputChange = (text) => {
+    userPassword = text;
+  }
+
+  const handleUserConfirmPasswordTextInputChange = (text) => {
+    userConfirmPassword = text;
+  }
 /*
   const handleSubmitButton = () => {
     setErrortext('');
@@ -135,21 +209,11 @@ const RegisterScreen = ({navigation}) => {
             <Loader loading={loading} />
                 
             <KeyboardAvoidingView enabled>
-            <View style={styles.TextZoneStyle}>
-                <TextInput
-                style={styles.inputStyle}
-                onChangeText={(username) => setUsername(username)}
-                placeholder="Username"
-                placeholderTextColor="#8b9cb5"
-                />
-            </View>
 
             <View style={styles.TextZoneStyle}>
                 <TextInput
                 style={styles.inputStyle}
-                onChangeText={
-                    (userEmail) => setUserEmail(userEmail)
-                }
+                onChangeText={userEmail => handleUserEmailTextInputChange(userEmail)}
                 placeholder="Email"
                 placeholderTextColor="#8b9cb5"
                 keyboardType="email-address"
@@ -159,7 +223,7 @@ const RegisterScreen = ({navigation}) => {
             <View style={styles.TextZoneStyle}>
                 <TextInput
                 style={styles.inputStyle}
-                onChangeText={(userPassword) => setUserPassword(userPassword)}
+                onChangeText={userPassword => handleUserPasswordTextInputChange(userPassword)}
                 placeholder="Password"
                 placeholderTextColor="#8b9cb5"
                 />
@@ -168,7 +232,7 @@ const RegisterScreen = ({navigation}) => {
             <View style={styles.TextZoneStyle}>
                 <TextInput
                 style={styles.inputStyle}
-                onChangeText={(userConfirmPassword) => setUserConfirmPassword(userConfirmPassword)}
+                onChangeText={userConfirmPassword => handleUserConfirmPasswordTextInputChange(userConfirmPassword)}
                 placeholder="Confirm Password"
                 placeholderTextColor="#8b9cb5"
                 />
@@ -176,7 +240,7 @@ const RegisterScreen = ({navigation}) => {
 
             <TouchableOpacity
                 style={styles.buttonStyle}
-                onPress={() => console.log("handle Registered : " + username + " "+ userEmail + " " + userPassword + " " + userConfirmPassword)}
+                onPress={() => {saveUser(); navigation.navigate("Home", {userEmail: userEmail})}}
                 activeOpacity={0.5}
             >
                 <Text style={styles.buttonTextStyle}>
@@ -205,7 +269,7 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     borderRadius: 30,
-    marginTop: '65%',
+    marginTop: '80%',
     marginLeft: '8%',
     marginRight: '8%',
     marginBottom: '3%'

@@ -9,7 +9,9 @@ import Loader from '../components/loader';
 import fakedata from '../data/data_meimo';
 
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ route, navigation }) => {
+
+  const { userEmail } = route.params;
 
   const [meimos, setMeimos] = useState([]);
   const [temporaryMeimos, setTemporaryMeimos] = useState([]);
@@ -39,11 +41,28 @@ const HomeScreen = ({ navigation }) => {
     setLoading(false);
   };
 
+
+  const fetchUser = async (userEmail) => {
+
+    console.log("fetching ... ");
+    const response = await fetch(
+      //'https://meimojsapirest.herokuapp.com/users'
+      'http://localhost:5000/users/'+userEmail
+    )
+    .then(response => response.json()
+    .then(data => {
+      console.log(data)
+    }))
+  };
+
   useEffect(() => {
 
     console.log("fetched data: ");
     fetchData();
     
+    fetchUser(userEmail);
+    console.log("get route: Logged in as: "+ userEmail);
+
   }, [query]); //execute effect only if query has changed.
 
 
@@ -60,6 +79,9 @@ const HomeScreen = ({ navigation }) => {
       meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
     //}
   }
+
+
+
   //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
 /*
   date = new Date().getDate(); //Current Date
@@ -114,7 +136,10 @@ const HomeScreen = ({ navigation }) => {
 
               <View style={styles.button_settings}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Setting', {itemID: '1', itemName: "bamboo"})}
+                  onPress={() => {
+                    Alert.alert("Disconnected", "");
+                    navigation.navigate('Login')}
+                  }
                 >
                   <Image
                     source={require('../assets/settings.png')}
@@ -234,7 +259,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   button_settings: {
-    flex: 0.2,
+    flex: 0.3,
     marginEnd: "3%",
     //backgroundColor: 'red'
   },
