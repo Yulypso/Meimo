@@ -76,9 +76,11 @@ Others <\br>
 > Let's create our first Meimo!
 > And some others ...
 
-<img align="left" width="252" height="506" src="./pictures/5_new_meimo.png"/>
-<img align="center" width="252" height="506" src="./pictures/6_new_meimo_fill.png"/>
-<img align="right" width="252" height="506" src="./pictures/7_meimo_created.png"/>
+<p align="center" width="100%">
+    <img align="left" width="252" height="506" src="./pictures/5_new_meimo.png"/>
+    <img align="center" width="252" height="506" src="./pictures/6_new_meimo_fill.png"/>
+    <img align="right" width="252" height="506" src="./pictures/7_meimo_created.png"/>
+</p>
 
 ### Search bar feature
 
