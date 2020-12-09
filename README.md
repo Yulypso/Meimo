@@ -73,6 +73,8 @@ Others <\br>
     <img align="left" width="252" height="506" src="./pictures/4_registered.png"/>
 </p>
 
+</br>
+
 ### New Meimo Screen
 
 > Let's create our first Meimo!
