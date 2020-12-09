@@ -18,7 +18,7 @@ const LoginScreen = ({ route, navigation}) => {
   const fetchUser = () => {
 
     console.log("fetching ... "+ userEmail.toLowerCase() + " " + userPassword);
-    console.log('http://localhost:5000/users/'+userEmail.toLowerCase()+'/'+userPassword)
+    //console.log('http://localhost:5000/users/'+userEmail.toLowerCase()+'/'+userPassword)
     const response = fetch(
       'https://meimojsapirest.herokuapp.com/users/'+userEmail+'/'+userPassword
       //'http://localhost:5000/users/'+userEmail+'/'+userPassword
@@ -163,8 +163,10 @@ const LoginScreen = ({ route, navigation}) => {
                         autoCapitalize="none"
                         keyboardType="email-address"
                         returnKeyType="next"
-                        onSubmitEditing={() => console.log("email entered")}
+                        onSubmitEditing={Keyboard.dismiss}
                         blurOnSubmit={false}
+                        returnKeyType="done"
+                        autoCorrect={false}
                     />
                 </View>
 
@@ -178,7 +180,8 @@ const LoginScreen = ({ route, navigation}) => {
                         onSubmitEditing={Keyboard.dismiss}
                         blurOnSubmit={false}
                         secureTextEntry={true}
-                        returnKeyType="next"
+                        returnKeyType="done"
+                        autoCorrect={false}
                     />
                 </View>
 

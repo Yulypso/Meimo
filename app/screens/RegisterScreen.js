@@ -218,6 +218,11 @@ const response = await fetch(
                 placeholder="Email"
                 placeholderTextColor="#8b9cb5"
                 keyboardType="email-address"
+                blurOnSubmit={false}
+                onSubmitEditing={()=> Keyboard.dismiss()}
+                returnKeyType="done"
+                autoCorrect={false}
+                autoCapitalize="none"
                 />
             </View>
 
@@ -228,6 +233,12 @@ const response = await fetch(
                 placeholder="Password"
                 placeholderTextColor="#8b9cb5"
                 secureTextEntry={true}
+                blurOnSubmit={false}
+                onSubmitEditing={()=> Keyboard.dismiss()}
+                returnKeyType="done"
+                autoCorrect={false}
+                autoCapitalize="none"
+                textContentType={'newPassword'}
                 />
             </View>
 
@@ -238,6 +249,12 @@ const response = await fetch(
                 placeholder="Confirm Password"
                 placeholderTextColor="#8b9cb5"
                 secureTextEntry={true}
+                blurOnSubmit={false}
+                onSubmitEditing={()=> Keyboard.dismiss()}
+                returnKeyType="done"
+                autoCorrect={false}
+                autoCapitalize="none"
+                textContentType={'newPassword'}
                 />
             </View>
 

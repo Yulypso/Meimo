@@ -85,7 +85,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
     Alert.alert("Meimo created!", "");
     console.log("saved: " + lastId+1 + " [" + new Date().toString() + "] : " + name + " : " + overview ); 
 
-    temporaryMeimos.push(
+    userEmail === 'root'?temporaryMeimos.push(
       {
         id: lastId+1,
         useremail: userEmail,
@@ -111,7 +111,15 @@ const NewMeimoScreen = ({ route, navigation }) => {
           }
         ]
       }
-    );
+    ):temporaryMeimos.push(
+      {
+        id: lastId+1,
+        useremail: userEmail,
+        name: name,
+        date: new Date().toString(),
+        overview: overview,
+      }
+    )
 
     userEmail === 'root'?console.log("root"): postData({
       id: lastId+1,
@@ -184,7 +192,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 legacyImplementation={false}
-                data={[
+                data={userEmail ==='root'?[
                   {
                     id: 1,
                     key: require('../assets/Bamboo.png')
@@ -201,7 +209,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
                     id: 4,
                     key : require('../assets/settings.png')
                   }
-                ]}
+                ]:''}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({item}) => <PictureItem meimoPictures={item} /*fromHomeNavigate={fromHomeNavigate}*//>}
                 //ItemSeparatorComponent={MeimoSeparator} 
