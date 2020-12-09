@@ -69,7 +69,9 @@ Others <\br>
 
 > Our account has been created, this is the Home screen, where our Meimo's list will be displayed.
 
-<img align="left" width="252" height="506" src="./pictures/4_registered.png"/>
+<p align="center" width="100%">
+    <img align="left" width="252" height="506" src="./pictures/4_registered.png"/>
+</p>
 
 ### New Meimo Screen
 
