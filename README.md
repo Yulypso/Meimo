@@ -18,6 +18,48 @@ Designed using __my own RESTful API Meimo__. Here you will find the __link to th
 
 ---
 
+## Setup the react-native project 
+
+
+__Running on IOS Simulator__
+
+Requirements: 
+- node
+- watchman
+- cocoapods
+- IOS Simulator
+
+```bash
+> git clone https://github.com/Yulypso/Meimo.git
+> cd Meimo
+> npm install
+> cd ios
+> pod install
+> cd ..
+> react-native run-ios
+```
+
+__Running on Android Emulator__
+
+Requirements:
+- node
+- watchman
+- Android Emulator
+
+```bash
+> git clone https://github.com/Yulypso/Meimo.git
+> cd Meimo
+> npm install
+> react-native run-android
+```
+
+<p align="center" width="100%">
+    <img align="center" width="252" height="506" src="./pictures/14_Login_fill.png"/>
+    <img align="center" width="252" height="506" src="./pictures/17_Android.png"/>
+</p>
+
+---
+
 ## Features
 
 The project includes the use of several technical features and methods. So here is a list of what was used while coding the application.
