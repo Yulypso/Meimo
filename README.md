@@ -27,7 +27,7 @@ The project includes the use of several technical features and methods. So here 
 
 ## Implementations
 
-several features have been implemented within this application. <\br>
+several features have been implemented within this application. 
 
 Screens <\br>
 - Login Screen
@@ -70,10 +70,9 @@ Others <\br>
 > Our account has been created, this is the Home screen, where our Meimo's list will be displayed.
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/4_registered.png"/>
+    <img align="center" width="252" height="506" src="./pictures/4_registered.png"/>
 </p>
 
-</br>
 
 ### New Meimo Screen
 
