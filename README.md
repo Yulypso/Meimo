@@ -57,7 +57,7 @@ Others <\br>
 > If you have no account, you navigate to the register screen.
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/1_Login.png"/>
+    <img align="center" width="252" height="506" src="./pictures/1_Login.png"/>
 </p>
 
 ---
@@ -125,7 +125,7 @@ Others <\br>
 > You can sign out from the App.
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/13_disconnected.png"/>
+    <img align="center" width="252" height="506" src="./pictures/13_disconnected.png"/>
 </p>
 
 ---
@@ -148,7 +148,7 @@ Others <\br>
 > Here is the concept which is functional only locally. Photos are not saved.
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/16_pictures_feature.png"/>
+    <img align="center" width="252" height="506" src="./pictures/16_pictures_feature.png"/>
 </p>
 
 ---
