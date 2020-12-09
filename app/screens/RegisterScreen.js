@@ -227,6 +227,7 @@ const response = await fetch(
                 onChangeText={userPassword => handleUserPasswordTextInputChange(userPassword)}
                 placeholder="Password"
                 placeholderTextColor="#8b9cb5"
+                secureTextEntry={true}
                 />
             </View>
 
@@ -236,6 +237,7 @@ const response = await fetch(
                 onChangeText={userConfirmPassword => handleUserConfirmPasswordTextInputChange(userConfirmPassword)}
                 placeholder="Confirm Password"
                 placeholderTextColor="#8b9cb5"
+                secureTextEntry={true}
                 />
             </View>
 
