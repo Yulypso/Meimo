@@ -18,7 +18,7 @@ Designed using __my own RESTful API Meimo__. Here you will find the __link to th
 
 ---
 
-## Setup the react-native project 
+## Setting up the react-native project 
 
 
 __Running on IOS Simulator__
@@ -54,7 +54,7 @@ Requirements:
 ```
 
 <p align="center" width="100%">
-    <img align="center" width="252" height="506" src="./pictures/14_Login_fill.png"/>
+    <img align="center" width="252" height="506" src="./pictures/14_login_fill.png"/>
     <img align="center" width="252" height="506" src="./pictures/17_Android.png"/>
 </p>
 
@@ -111,7 +111,7 @@ __Others__
 > Here is the register screen, let's create our account. 
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/2_register.png"/>
+    <img align="center" width="252" height="506" src="./pictures/2_register.png"/>
     <img align="center" width="252" height="506" src="./pictures/3_register_fill.png"/>
 </p>
 
@@ -145,7 +145,7 @@ __Others__
 > An amazing feature was set up for you to search your meimo among several of them!
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/8_added_meimo.png"/>
+    <img align="center" width="252" height="506" src="./pictures/8_added_meimo.png"/>
     <img align="center" width="252" height="506" src="./pictures/9_Search.png"/>
 </p>
 
@@ -154,7 +154,7 @@ __Others__
 ### Details Screen
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/10_edited_meimo.png"/>
+    <img align="center" width="252" height="506" src="./pictures/10_edited_meimo.png"/>
     <img align="center" width="252" height="506" src="./pictures/11_edited_meimo_saved.png"/>
 </p>
 
@@ -181,7 +181,7 @@ __Others__
 > It automatically fetch back all your saved meimos!
 
 <p align="center" width="100%">
-    <img align="left" width="252" height="506" src="./pictures/14_login_fill.png"/>
+    <img align="center" width="252" height="506" src="./pictures/14_login_fill.png"/>
     <img align="center" width="252" height="506" src="./pictures/15_fetched_meimos.png"/>
 </p>
 
