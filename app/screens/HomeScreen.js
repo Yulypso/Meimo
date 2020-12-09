@@ -41,20 +41,6 @@ const HomeScreen = ({ route, navigation }) => {
     setLoading(false);
   };
 
-
-  const fetchUser = async (userEmail) => {
-
-    console.log("fetching ... ");
-    const response = await fetch(
-      //'https://meimojsapirest.herokuapp.com/users'
-      'http://localhost:5000/users/'+userEmail
-    )
-    .then(response => response.json()
-    .then(data => {
-      console.log(data)
-    }))
-  };
-
   useEffect(() => {
 
     console.log("fetched data: ");

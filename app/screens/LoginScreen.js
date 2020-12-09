@@ -3,16 +3,64 @@
 
 // Import React and Component
 import React, {useState, createRef} from 'react';
-import { StyleSheet, Button, TextInput, View, Text, ScrollView, Image, Keyboard, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Button, TextInput, View, Text, ScrollView, Image, Keyboard, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
 
 import Loader from '../components/loader';
 
 const LoginScreen = ({navigation}) => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-
+  
+  var userEmail='';
+  var userPassword='';
   const [loading, setLoading] = useState(false);
 
+  var userData;
+
+  const fetchUser = () => {
+
+    console.log("fetching ... "+ userEmail.toLowerCase() + " " + userPassword);
+    console.log('http://localhost:5000/users/'+userEmail.toLowerCase()+'/'+userPassword)
+    const response = fetch(
+      //'https://meimojsapirest.herokuapp.com/users'
+      'http://localhost:5000/users/'+userEmail+'/'+userPassword
+    )
+    .then(response => response.json()
+    .then(data => {
+      //console.log(data);
+      userData=data;
+      console.log(data);
+//typeof image_array !== 'undefined' && image_array.length > 0
+      if(data.length < 1){
+        console.log("EMPTY")
+        Alert.alert("Email or Password incorrect","")
+      }
+      else{
+        navigation.navigate('Home', {userEmail:userEmail}) //check password with database first
+      }
+    }))
+  };
+
+  const setUserEmail = (text) => {
+    userEmail=text;
+  }
+
+  const setUserPassword = (text) => {
+    userPassword=text;
+  }
+  
+  const verify = () => {
+    if(userEmail === '' && userPassword === ''){
+      Alert.alert("Email & Password Empty", "");
+    }
+    else if(userPassword === '') {
+      Alert.alert("Password Empty", "");
+    }
+    else if(userEmail === '') {
+      Alert.alert("Email Empty", "");
+    }
+    else {
+      fetchUser();
+    }
+  }
   /*const handleSubmitPress = () => {
     setErrortext('');
     if (!userEmail) {
@@ -128,9 +176,7 @@ const LoginScreen = ({navigation}) => {
                 <TouchableOpacity
                     style={styles.buttonStyle}
                     activeOpacity={0.5}
-                    onPress={() => {console.log("SIGN IN : " + userEmail + " " + userPassword); 
-                                    navigation.navigate('Home', {userEmail:userEmail}) //check password with database first
-                                }}> 
+                    onPress={() => {verify()}}> 
                     <Text style={styles.buttonTextStyle}>
                         SIGN IN
                     </Text>
