@@ -100,6 +100,7 @@ Others <\br>
     <img align="left" width="252" height="506" src="./pictures/8_added_meimo.png"/>
     <img align="center" width="252" height="506" src="./pictures/9_Search.png"/>
 </p>
+
 ---
 
 ### Details Screen
@@ -122,6 +123,7 @@ Others <\br>
 <p align="center" width="100%">
     <img align="left" width="252" height="506" src="./pictures/13_disconnected.png"/>
 </p>
+
 ---
 
 ### Login Screen
