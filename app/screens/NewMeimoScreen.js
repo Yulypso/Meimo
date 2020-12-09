@@ -6,7 +6,9 @@ import fakedata from '../data/data_meimo'
 
 const NewMeimoScreen = ({ route, navigation }) => {
 
-  const { meimos, fetchData, temporaryMeimos, lastId, setSetIsEmpty} = route.params;
+  const { meimos, fetchData, temporaryMeimos, lastId, setSetIsEmpty, userEmail} = route.params;
+
+  console.log("new meimo for : "+userEmail);
 
   const postData = (meimo) => {
     console.log("posted data : " + meimo.name);
@@ -36,7 +38,6 @@ const NewMeimoScreen = ({ route, navigation }) => {
   //console.log("size meimos: " + meimos.length)
 
   var d = new Date();
-  var userid = 1;
   var fulldate = "";
   var name = "Untitled";
   var overview = " ";
@@ -87,7 +88,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
     temporaryMeimos.push(
       {
         id: lastId+1,
-        userid: userid,
+        useremail: userEmail,
         name: name,
         date: new Date().toString(),
         overview: overview,
@@ -114,7 +115,7 @@ const NewMeimoScreen = ({ route, navigation }) => {
 
     postData({
       id: lastId+1,
-      userid: userid,
+      useremail: userEmail,
       name: name,
       date: new Date().toString(),
       overview: overview

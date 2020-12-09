@@ -27,7 +27,7 @@ const HomeScreen = ({ route, navigation }) => {
 
       const response = await fetch(
         //'https://meimojsapirest.herokuapp.com/meimos'
-        'http://localhost:5000/meimos'
+        'http://localhost:5000/meimos/'+userEmail
       )
       .then(response => response.json()
       .then(data => {
@@ -59,8 +59,8 @@ const HomeScreen = ({ route, navigation }) => {
 
     console.log("fetched data: ");
     fetchData();
-    
-    fetchUser(userEmail);
+
+    //fetchUser(userEmail);
     console.log("get route: Logged in as: "+ userEmail);
 
   }, [query]); //execute effect only if query has changed.
@@ -177,7 +177,7 @@ const HomeScreen = ({ route, navigation }) => {
                 <View style={styles.button_newMeimoContainer}>
                 {isEmpty &&
                     <TouchableOpacity
-                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId: 0, 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
+                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId: 0, 'setSetIsEmpty': (item) => setSetIsEmpty(item), userEmail:userEmail}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
@@ -187,7 +187,7 @@ const HomeScreen = ({ route, navigation }) => {
 
                 {!isEmpty &&
                     <TouchableOpacity
-                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, temporaryMeimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item)}) )}
+                      onPress={() => (navigation.navigate('NewMeimo', {meimos:meimos, 'fetchData':(valueQuery) => fetchData(valueQuery), temporaryMeimos:temporaryMeimos, lastId:Math.max.apply(Math, temporaryMeimos.map((o) => o.id.toString())), 'setSetIsEmpty': (item) => setSetIsEmpty(item), userEmail:userEmail}) )}
                     >   
                       <Image
                         source={require('../assets/Bamboo.png')}
