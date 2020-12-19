@@ -25,6 +25,16 @@ const RegisterScreen = ({navigation}) => {
           user: user
         })
       })
+      .then(response => {
+        if(response.ok) {
+          Alert.alert("Registered!", "");
+          console.log("handle Registered : " + userEmail + " " + userPassword + " " + userConfirmPassword);
+          navigation.navigate("Home", {userEmail: userEmail});
+        }else {
+          console.log("EMPTY")
+          Alert.alert("Account already exists","")
+        }
+      })
   }
 
 /*
@@ -55,9 +65,9 @@ const response = await fetch(
             email: userEmail,
             password: userPassword,
           });
-          Alert.alert("Registered!", "");
-          console.log("handle Registered : " + userEmail + " " + userPassword + " " + userConfirmPassword);
-          navigation.navigate("Home", {userEmail: userEmail});
+          //Alert.alert("Registered!", "");
+          //console.log("handle Registered : " + userEmail + " " + userPassword + " " + userConfirmPassword);
+          //navigation.navigate("Home", {userEmail: userEmail});
         }
         else {
           Alert.alert("Password are not identical", "");
