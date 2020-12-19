@@ -109,10 +109,12 @@ __Others__
 ### Register Screen
 
 > Here is the register screen, let's create our account. 
+> if an account already exists, you cannot register with the same email.
 
 <p align="center" width="100%">
-    <img align="center" width="252" height="506" src="./pictures/2_register.png"/>
+    <img align="left" width="252" height="506" src="./pictures/2_register.png"/>
     <img align="center" width="252" height="506" src="./pictures/3_register_fill.png"/>
+    <img align="right" width="252" height="506" src="./pictures/18_account_exists.png"/>
 </p>
 
 ---
