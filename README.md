@@ -16,7 +16,22 @@ Designed using __my own RESTful API Meimo__. Here you will find the __link to th
 
 - [Meimo ApiREST](https://github.com/Yulypso/MeimoHerokuJsApiREST)
 
+
 ---
+<br>
+
+## App icon
+
+<p align="center" width="100%">
+    <img align="center" width="200" height="200" src="./pictures/panda_logo.jpg"/>
+</p>
+
+
+designed by [Caroline Khamphousone](https://www.linkedin.com/in/caroline-khamphousone-8a2a48185/) 
+
+
+---
+<br>
 
 ## Setting up the react-native project 
 
@@ -59,6 +74,7 @@ Requirements:
 </p>
 
 ---
+<br>
 
 ## Features
 
@@ -68,6 +84,7 @@ The project includes the use of several technical features and methods. So here 
 - [React Navigation](https://reactnavigation.org/docs/getting-started)
 
 ---
+<br>
 
 ## Implementations
 
@@ -91,6 +108,7 @@ __Others__
 - Meimo List
 
 ---
+<br>
 
 ## How the mobile app works ? 
 
@@ -105,6 +123,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Register Screen
 
@@ -118,6 +137,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Home Screen
 
@@ -128,6 +148,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### New Meimo Screen
 
@@ -141,6 +162,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Search bar feature
 
@@ -152,6 +174,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Details Screen
 
@@ -167,6 +190,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Disconnect from the App
 
@@ -177,6 +201,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Login Screen
 
@@ -189,6 +214,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Feature not implemented
 
@@ -200,6 +226,7 @@ __Others__
 </p>
 
 ---
+<br>
 
 ### Improvements
 
