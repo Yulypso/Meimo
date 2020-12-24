@@ -1,28 +1,48 @@
-import React from 'react'
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
+import React, { Component } from 'react'
+import {StyleSheet, View, Text, TouchableOpacity, Animated } from 'react-native'
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { RectButton } from 'react-native-gesture-handler';
 
 const MeimoItem = (props) => {
     //il faudrait pouvoir faire (props, {route , navigation})
    //// const meimo=props.meimo;
-   const {meimo, fromHomeNavigateToDetail} = props;
+   const {meimo, fromHomeNavigateToDetail, deleteSelectedMeimo} = props;
     //const { navigate } = props.navigation;
     //console.log(fromHomeNavigateToDetail.toString() /* :'( */ ); 
 
-    return (
-        <View style={styles.content_container}>
-            <TouchableOpacity 
-                onPress={() => fromHomeNavigateToDetail(meimo)}
-            >
-                {/*console.log("meimo get in MeimoITEM: "+ meimo.name)*/}
-                <View style={styles.header_container}>
-                    <Text style={styles.meimo_nameText} numberOfLines={1}>{meimo.name}</Text>
-                    <Text style={styles.meimo_dateText}>{meimo.date}</Text>
-                </View>
+    const renderRightActions = (progress, dragX) => {
         
-                {meimo.overview.length === 0 && <Text style={styles.meimo_descriptionText} numberOfLines={1}>No additionnal text</Text>}
-                <Text style={styles.meimo_descriptionText} numberOfLines={1}>{meimo.overview}</Text>
-            </TouchableOpacity>
-        </View>
+        return (
+          <TouchableOpacity onPress={() => deleteSelectedMeimo(meimo)} activeOpacity={0.6}>
+            <View style={styles.deleteBox}>
+              <Text style={styles.deleteText}>
+                Delete
+              </Text>
+            </View>
+          </TouchableOpacity>
+        );
+      };
+
+    return (
+        <Swipeable 
+                renderRightActions={renderRightActions}
+            >
+            <View style={styles.content_container}>
+            
+                <TouchableOpacity 
+                    onPress={() => fromHomeNavigateToDetail(meimo)}
+                >
+                    {/*console.log("meimo get in MeimoITEM: "+ meimo.name)*/}
+                    <View style={styles.header_container}>
+                        <Text style={styles.meimo_nameText} numberOfLines={1}>{meimo.name}</Text>
+                        <Text style={styles.meimo_dateText}>{meimo.date}</Text>
+                    </View>
+            
+                    {meimo.overview.length === 0 && <Text style={styles.meimo_descriptionText} numberOfLines={1}>No additionnal text</Text>}
+                    <Text style={styles.meimo_descriptionText} numberOfLines={1}>{meimo.overview}</Text>
+                </TouchableOpacity>
+            </View>
+        </Swipeable>
     )
 }
 
@@ -72,6 +92,20 @@ const styles = StyleSheet.create ({
         fontFamily: 'PingFang HK',
         marginLeft: "2%",
         //backgroundColor: 'pink',
+    },
+    deleteBox: {
+        backgroundColor: '#DF1814',
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 100,
+        flex: 1,
+        flexDirection: "column"
+    },
+    deleteText: {
+        fontSize: 14,
+        textAlign: 'center',
+        fontWeight: 'normal',
     }
 })
 

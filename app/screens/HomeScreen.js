@@ -41,43 +41,45 @@ const HomeScreen = ({ route, navigation }) => {
     setLoading(false);
   };
 
+  const saveDelete = (meimo) => {
+    console.log("deleted data : " + meimo.name);
+    fetch(
+      'https://meimojsapirest.herokuapp.com/meimo/delete'
+      //'http://localhost:5000/meimo/delete'
+      ,{
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          meimo: meimo
+      })
+    }).then(response => {
+      if(response.ok) {
+        Alert.alert("Deleted!", "");
+      }else {
+        console.log("Server Error")
+        Alert.alert("Server Error","")
+      }
+    })
+  }
+
   useEffect(() => {
 
     console.log("fetched data: ");
     userEmail === 'root'?'':fetchData();
     
-
-    //fetchUser(userEmail);
     console.log("get route: Logged in as: "+ userEmail);
 
   }, [query, userEmail]); //execute effect only if query has changed.
 
 
   if(!isEmpty) {
-    //if(meimos.length > 1){
-
       console.log("meimos: "+meimos);
-      //console.log(meimos);
-      //console.log(meimos.length)
-  
-      //postData();
-
       //order meimos by date desc
       meimos.sort((a, b) => new Date(b.date) - new Date(a.date))
-    //}
   }
-
-
-
-  //retourne un tableau contenant l'état des Meimos [0] et mettre a jour mes Meimos [1]
-/*
-  date = new Date().getDate(); //Current Date
-  month = new Date().getMonth() + 1; //Current Month
-  year = new Date().getFullYear(); //Current Year
-  hours = new Date().getHours(); //Current Hours
-  min = new Date().getMinutes(); //Current Minutes
-  sec = new Date().getSeconds(); //Current Seconds
-  //{this.date}/{this.month}/{this.year} {this.hours}:{this.min}:{this.sec}*/
 
   const setSetIsEmpty = (item) => {
     setIsEmpty(item);
@@ -88,14 +90,17 @@ const HomeScreen = ({ route, navigation }) => {
     (a.meimoName.length == 0) ? /*fetchData()*/setMeimos(temporaryMeimos): (setMeimos(updatedMeimos));
   }
 
-  /*const fromHomeUpdateMeimos = (meimo) => {
-    setMeimos(meimos);
-    //meimos[meimo.id].id=meimo.id;
-    //meimos[meimo.id].name=meimo.name;
-    //meimos[meimo.id].date=meimo.date;
-    //meimos[meimo.id].overview=meimo.overview;
-    console.log(meimos[0].name)
-  }*/
+  const deleteSelectedMeimo = (meimo) => {
+    meimosMinus = meimos.slice();
+    meimosTempMinus = temporaryMeimos.slice();
+    deletedMeimo = meimosMinus.splice(meimosMinus.indexOf(meimo), 1);
+    deletedMeimoTemp = meimosTempMinus.splice(meimosTempMinus.indexOf(meimo), 1);
+    
+    setMeimos(meimosMinus);
+    setTemporaryMeimos(meimosTempMinus);
+
+    saveDelete(meimo);
+  }
 
   return(
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -142,7 +147,7 @@ const HomeScreen = ({ route, navigation }) => {
               <FlatList
                 data={meimos}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={(item) => navigation.navigate("Detail", {meimo: item})}/>}
+                renderItem={({item}) => <MeimoItem meimo={item} fromHomeNavigateToDetail={(item) => navigation.navigate("Detail", {meimo: item})} deleteSelectedMeimo={() => deleteSelectedMeimo(item)}/>}
                 ItemSeparatorComponent={MeimoSeparator} 
                 /*onEndReachedThreshold={0.5} //definition de la longueur avant le declenchement de l'event onEndReached
                 onEndReached={() => {
