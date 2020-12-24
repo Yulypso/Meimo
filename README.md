@@ -216,6 +216,20 @@ __Others__
 ---
 <br>
 
+### Delete a Meimo
+
+> You can delete meimos. 
+> 
+> Swipe left, then press on delete button. 
+
+<p align="center" width="100%">
+    <img align="center" width="252" height="506" src="./pictures/19_delete_meimo.png"/>
+    <img align="center" width="252" height="506" src="./pictures/20_delete_confirm.png"/>
+</p>
+
+---
+<br>
+
 ### Feature not implemented
 
 > I thought about adding a feature that would allow users to add their photos to their meimo before saving it. 
